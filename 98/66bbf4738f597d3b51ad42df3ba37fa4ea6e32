@@ -1,0 +1,40 @@
+packages/python/src/mnfst_autofix/openai.py
+  s_5ffc5a5ec46540::t_06a4bbec7306f4 104
+  s_5ffc5a5ec46540::t_3936c1ec4fce9b 115
+  s_5ffc5a5ec46540::t_5b4b524bd5103e 36
+packages/js/tests/anonymize.test.ts
+  s_5ffc5a5ec46540::t_a7815eaf13e431 3
+packages/js/src/openai.ts
+  s_5ffc5a5ec46540::t_aa14a6cbce1008 11
+  s_5ffc5a5ec46540::t_6018cb9033fda7 188
+  s_5ffc5a5ec46540::t_8cbeb2a9a5e015 112
+packages/python/tests/test_anonymize.py
+  s_5ffc5a5ec46540::t_e4f1aa846c3b1d 3
+packages/python/src/mnfst_autofix/anonymize.py
+  s_5ffc5a5ec46540::t_9c6720259c4958 4-7
+packages/js/README.md
+  s_5ffc5a5ec46540::t_4ed6c980de96ab 37,39,41
+packages/js/src/anonymize.ts
+  s_5ffc5a5ec46540::t_8fe92f72b8f6b9 4-9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "9866bbf4738f597d3b51ad42df3ba37fa4ea6e32",
+  "prompts": {},
+  "humans": {
+    "h_4314c622e2d856": {
+      "author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  },
+  "sessions": {
+    "s_5ffc5a5ec46540": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "68724054-0729-4690-8cbe-bb49fbc84a07",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
