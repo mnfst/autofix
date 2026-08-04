@@ -1,0 +1,37 @@
+conformance/wire-contract.md
+  s_5ffc5a5ec46540::t_5f53ef8fd1b57e 7,9-12,60,75-77,91,93-94,98,122
+packages/python/tests/test_wrapper.py
+  s_5ffc5a5ec46540::t_9d4aff3209fb68 222
+  s_5ffc5a5ec46540::t_999277733c18d4 145
+  s_5ffc5a5ec46540::t_1db32e4954e591 79
+packages/js/tests/wrapper.test.ts
+  s_5ffc5a5ec46540::t_41dc40b056d30b 192
+  s_5ffc5a5ec46540::t_df51217283952d 106
+packages/python/src/mnfst_autofix/openai.py
+  s_5ffc5a5ec46540::t_972d1c065ebaef 249,349
+  s_5ffc5a5ec46540::t_fa0ada8646945a 186,292
+packages/js/src/openai.ts
+  s_5ffc5a5ec46540::t_cf8291da6687a3 164
+  s_5ffc5a5ec46540::t_cdfc3e11468a41 179
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "f984594d7fba3c6f8d8b84470c39f294bda3839f",
+  "prompts": {},
+  "humans": {
+    "h_4314c622e2d856": {
+      "author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  },
+  "sessions": {
+    "s_5ffc5a5ec46540": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "68724054-0729-4690-8cbe-bb49fbc84a07",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
