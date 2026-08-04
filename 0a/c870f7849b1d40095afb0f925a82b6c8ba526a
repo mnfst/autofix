@@ -1,0 +1,129 @@
+conformance/README.md
+  s_1775f6c9e89812::t_441205273e6341 1-6,8-11,15-16
+  s_5ffc5a5ec46540::t_fbfdcbaeb2ef55 7,12-14
+packages/js/package.json
+  s_1775f6c9e89812::t_9596884b6a329b 10
+  s_1775f6c9e89812::t_bed425b33b73c0 9,12
+  s_b328dce100c75d::t_5b321ec721a59f 36
+  s_9e74ba397e9210::t_fc1dfe10a1f15d 1-8,11,13-35,37-50
+packages/python/src/mnfst_autofix/core/anonymize.py
+  s_b328dce100c75d::t_aba8dce9399eb4 1-9,15,17-18,26,33-48
+  s_1775f6c9e89812::t_72cb7cf0177838 10-14,16,19-25,27-32
+packages/js/tests/wrapper.test.ts
+  s_b328dce100c75d::t_5344eab6e4ab28 82-83,104,143,145,148,151-152,165
+  s_5ffc5a5ec46540::t_0c14f97a8d6576 3,15,17,19-22,28,30-31,34,38-40,44,52-55,69,76-81,84,86-87,91-103,105,107-113,116-122,124,127,129-130,132-134,136,138-139,142,144,146-147,149-150,153,156-164,166,171,174,179-183,186,188-189,193
+packages/python/tests/test_wrapper.py
+  s_5ffc5a5ec46540::t_a7707b493c1564 25-27,30-32,34-38,79-82,84-91,93,95,112,114-122,124-125,128-129,135-146,149-152,155-162,165-169,172,174-175,178-186,192-200,205,211-214,217-225,227,234,236-237,239-246
+  s_1775f6c9e89812::t_d4592bd91a8c93 1-24,28-29,33,39-78,83,92,94,96-111,113,123,126-127,130-134,147-148,153-154,163-164,170-171,173,176-177,187-191,201-204,206-210,215-216,226,228-233,235,238
+packages/js/src/core/anonymize.ts
+  s_b328dce100c75d::t_5344eab6e4ab28 3,8,11-14,16-31,37,45
+  s_b328dce100c75d::t_be85e0e036a44d 1-2,4-7,9-10,15,32-36,38-44
+packages/python/README.md
+  s_5ffc5a5ec46540::t_a189428db5d4af 43,46-48
+  s_5ffc5a5ec46540::t_a23afcf5822ab6 12
+  s_5ffc5a5ec46540::t_53eabe80f1f949 29
+  s_1775f6c9e89812::t_19311170b64555 1-11,13-28,30-42,44-45,49-57
+packages/python/pyproject.toml
+  s_1775f6c9e89812::t_4ae224493dcf8a 1-27
+packages/js/src/openai.ts
+  s_b328dce100c75d::t_6d239a39dc0e99 1-11,14,21,23,25-26,33,38-39,50-63,67-71,95-96,98-119,121-128,131-134,137-138,144,150-151,153-154,163,167,169,171,177,183,185
+packages/python/src/mnfst_autofix/__init__.py
+  s_1775f6c9e89812::t_14c336c6db4f12 1-8
+packages/js/tsconfig.json
+  s_b328dce100c75d::t_5344eab6e4ab28 1-13
+package.json
+  s_1775f6c9e89812::t_8405f6aef51d62 2-6,9-12
+.gitignore
+  s_1775f6c9e89812::t_f61bdc5fef3439 5-8
+packages/python/src/mnfst_autofix/openai.py
+  s_1775f6c9e89812::t_1b7c21c915add7 1-2,8-13,15,17-21,24-25,27-31,33-35,37-39,41-55,68-71,73,75,78-80,82,89-94,96-116,124-148,150-154,156-181,184-185,214-218,220-232,236,239-252,254,256-292,308,316-317,320-321,323-335,337,339-341,344-353,355,357-374
+  s_b328dce100c75d::t_325396077c19e5 3-7,14,16,22-23,26,32,36,40,56-67,72,74,76-77,81,83-88,95,117-123,149,155,182-183,186-213,219,233-235,237-238,253,255,293-307,309-315,318-319,322,336,338,342-343,354,356
+README.md
+  s_1775f6c9e89812::t_1ea1ced668edfd 1,3-5,11,14,18,23-25,28-31,33,35-36,39-41
+  s_1775f6c9e89812::t_cc802b4f59ad81 15-16,19-20,22
+  s_5ffc5a5ec46540::t_47d3349321a963 17,21
+  s_5ffc5a5ec46540::t_f21c671575d4a5 6-9
+packages/python/examples/try.py
+  s_5ffc5a5ec46540::t_ea874442b83e43 8
+  s_1775f6c9e89812::t_9a4a154a88738f 1-7,9-16
+packages/js/tests/anonymize.test.ts
+  s_b328dce100c75d::t_5344eab6e4ab28 1-2,4,7,10,12-13,20,60
+  s_5ffc5a5ec46540::t_afd0e93609fef0 3,5-6,8-9,11,14-19,21-59
+packages/python/tests/test_anonymize.py
+  s_1775f6c9e89812::t_e72b63f6dfaa1b 1-2,4-5,8,11
+  s_5ffc5a5ec46540::t_d8300fb6597d6c 3,6-7,9-10,12-60
+packages/js/README.md
+  s_5ffc5a5ec46540::t_e408cd1fa35868 39
+  s_5ffc5a5ec46540::t_76bdd010e4e0e5 87
+  s_5ffc5a5ec46540::t_28408d6de969cd 58-71
+  s_5ffc5a5ec46540::t_760b5ac77c0cc0 96
+  s_5ffc5a5ec46540::t_4e69ad570026a9 47-51
+  s_5ffc5a5ec46540::t_92ffde7c30400c 10
+  s_5ffc5a5ec46540::t_5c2873182e12f7 88
+  s_5ffc5a5ec46540::t_ce0d262d9f2af9 90
+  s_5ffc5a5ec46540::t_6e941ded616f0a 7-9
+  s_5ffc5a5ec46540::t_c8bdc0f0763d0e 11-13,36-38
+  s_5ffc5a5ec46540::t_09976d40031ae5 40-42,44-46
+  s_5ffc5a5ec46540::t_ab51f579f21ba0 52-57
+  s_5ffc5a5ec46540::t_22f05c77aeec51 72-74,84-86
+  s_5ffc5a5ec46540::t_5db8527ec68ba7 89
+  s_5ffc5a5ec46540::t_82310edcd634a5 91-95
+  s_5ffc5a5ec46540::t_bfcbf7b96eb8c0 97-99
+  s_5ffc5a5ec46540::t_7f40ba16a9e680 1-6,14-35,43,75-83,100-101
+packages/js/examples/demo.ts
+  s_b328dce100c75d::t_03c958ffa1af8d 1
+  s_5ffc5a5ec46540::t_d447c44e49d98c 14
+packages/js/LICENSE
+  s_1775f6c9e89812::t_30fa25326f2466 1-21
+packages/js/try.mjs
+  s_b328dce100c75d::t_5344eab6e4ab28 8-10,20
+packages/js/tsup.config.ts
+  s_b328dce100c75d::t_5344eab6e4ab28 1-11
+package-lock.json
+  s_1775f6c9e89812::t_fd7d77418eded6 2,7-10,13-15,30-32,47-49,64-66,81-83,98-100,115-117,132-134,149-151,166-168,183-185,200-202,217-219,234-236,251-253,268-270,285-287,302-304,319-321,336-338,353-355,370-372,387-389,404-406,421-423,438-440,493-496,1134-1136,1147-1172,1916-1938,1952-1955,1969-1972,1986-1989,2003-2006,2020-2023,2037-2040,2054-2057,2071-2074,2088-2091,2105-2108,2122-2125,2139-2142,2156-2159,2173-2176,2190-2193,2207-2210,2224-2227,2241-2244,2258-2261,2275-2278,2292-2295,2309-2312,2326-2329,2343-2346,2360-2363,2377-2380,2391-2416,2474-2488
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "0ac870f7849b1d40095afb0f925a82b6c8ba526a",
+  "prompts": {},
+  "humans": {
+    "h_4314c622e2d856": {
+      "author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  },
+  "sessions": {
+    "s_1775f6c9e89812": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "26eb4864-306e-4d7f-8386-766cd4c121a0",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    },
+    "s_5ffc5a5ec46540": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "68724054-0729-4690-8cbe-bb49fbc84a07",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    },
+    "s_9e74ba397e9210": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4d24f3c1-0c1d-44b6-9664-3144ef4c4b84",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    },
+    "s_b328dce100c75d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "405817f6-f357-4c32-ac28-b3e50cfe48b0",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
