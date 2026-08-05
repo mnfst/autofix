@@ -1,0 +1,20 @@
+.github/workflows/publish.yml
+  s_c7cb74e57e0de3::t_d0a4df5172325f 36,90
+  s_c7cb74e57e0de3::t_740f905eff51ef 3-15
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "5777e7334d81a96aac57d83a8ca09873698f9830",
+  "prompts": {},
+  "sessions": {
+    "s_c7cb74e57e0de3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a4b8f5ce-a4e1-431f-9203-3e378f303e7e",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
