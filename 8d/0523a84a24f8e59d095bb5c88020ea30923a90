@@ -1,0 +1,21 @@
+README.md
+  s_c7cb74e57e0de3::t_32caa967aa51f1 29
+docs/autofix-flow.svg
+  s_c7cb74e57e0de3::t_6c2650f5a1e185 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "8d0523a84a24f8e59d095bb5c88020ea30923a90",
+  "prompts": {},
+  "sessions": {
+    "s_c7cb74e57e0de3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a4b8f5ce-a4e1-431f-9203-3e378f303e7e",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
