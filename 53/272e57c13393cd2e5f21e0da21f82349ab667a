@@ -1,0 +1,21 @@
+.github/workflows/ci.yml
+  s_c7cb74e57e0de3::t_6540c9d94db7f1 1-44
+.github/workflows/publish.yml
+  s_c7cb74e57e0de3::t_da140224a61b4a 1-147
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "53272e57c13393cd2e5f21e0da21f82349ab667a",
+  "prompts": {},
+  "sessions": {
+    "s_c7cb74e57e0de3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a4b8f5ce-a4e1-431f-9203-3e378f303e7e",
+        "model": "grok-4.5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
