@@ -1,0 +1,26 @@
+conformance/README.md
+  s_5ffc5a5ec46540::t_fc2214625e706d 1-7
+conformance/wire-contract.md
+  s_5ffc5a5ec46540::t_04eb203bbba814 1-126
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "30843ed47ccdf8df5666e345418f5274bc21e3ca",
+  "prompts": {},
+  "humans": {
+    "h_4314c622e2d856": {
+      "author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  },
+  "sessions": {
+    "s_5ffc5a5ec46540": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "68724054-0729-4690-8cbe-bb49fbc84a07",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

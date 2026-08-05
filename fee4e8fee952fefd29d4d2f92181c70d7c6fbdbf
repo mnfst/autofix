@@ -1,0 +1,55 @@
+packages/js/try.mjs
+  s_5ffc5a5ec46540::t_7ef6134b486c10 5,8
+packages/js/README.md
+  s_5ffc5a5ec46540::t_69d789b2b17857 88
+  s_5ffc5a5ec46540::t_08f75617b6ef4c 7,10,63
+packages/python/src/mnfst_autofix/__init__.py
+  s_5ffc5a5ec46540::t_1f26aa2ce4d1c1 5
+packages/js/examples/demo.ts
+  s_5ffc5a5ec46540::t_7ef6134b486c10 1,3,6,13
+packages/python/tests/test_wrapper.py
+  s_5ffc5a5ec46540::t_1be9a24f51fa5a 10
+  s_5ffc5a5ec46540::t_4149cb44b4d63b 150-153
+  s_5ffc5a5ec46540::t_cee6ebeca03b7e 68-69
+packages/python/README.md
+  s_5ffc5a5ec46540::t_08f75617b6ef4c 10,12,27,29,39,42
+packages/js/src/openai.ts
+  s_5ffc5a5ec46540::t_ce9f59b09d28a0 39-42
+  s_5ffc5a5ec46540::t_bac85f1f1a8749 69
+  s_5ffc5a5ec46540::t_2b243879fba7fd 185
+  s_5ffc5a5ec46540::t_ebe009217c10c1 170
+conformance/wire-contract.md
+  s_5ffc5a5ec46540::t_eb4c1eb01d8110 73-75
+packages/js/tests/wrapper.test.ts
+  s_5ffc5a5ec46540::t_e4c129f0dad1d0 113-116
+  s_5ffc5a5ec46540::t_7ef6134b486c10 3,73,82,91,129,141,154,164,173,181,198
+  s_5ffc5a5ec46540::t_4e7738898bcbf1 30-31,47-50
+packages/python/examples/try.py
+  s_5ffc5a5ec46540::t_7ef6134b486c10 6,8
+packages/python/src/mnfst_autofix/openai.py
+  s_5ffc5a5ec46540::t_7e6e27ee952a9f 12,14
+  s_5ffc5a5ec46540::t_a0e15879bbe887 36,41-44
+  s_5ffc5a5ec46540::t_b87e39a263a001 367,372
+  s_5ffc5a5ec46540::t_35c8b6318cc406 194,256,300,356
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "fee4e8fee952fefd29d4d2f92181c70d7c6fbdbf",
+  "prompts": {},
+  "humans": {
+    "h_4314c622e2d856": {
+      "author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  },
+  "sessions": {
+    "s_5ffc5a5ec46540": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "68724054-0729-4690-8cbe-bb49fbc84a07",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
