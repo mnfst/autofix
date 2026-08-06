@@ -1,0 +1,32 @@
+python/src/mnfst_autofix/core/anonymize.py
+  s_85bbd417c59b30::t_55957bb894ac01 3-8
+tests/anonymize-cases.json
+  s_85bbd417c59b30::t_55957bb894ac01 46,95
+node/README.md
+  s_85bbd417c59b30::t_55957bb894ac01 68,80-82
+python/README.md
+  s_85bbd417c59b30::t_55957bb894ac01 49,61-63
+node/src/core/anonymize.ts
+  s_85bbd417c59b30::t_55957bb894ac01 4-10
+CONTRIBUTING.md
+  s_85bbd417c59b30::t_55957bb894ac01 25-26
+README.md
+  s_85bbd417c59b30::t_55957bb894ac01 138-139,143,147-148,154-156
+  s_85bbd417c59b30::t_9a2c4e76734d74 157
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "8fd34b6013ca684b2610ee3e1a2a8d60678c6011",
+  "prompts": {},
+  "sessions": {
+    "s_85bbd417c59b30": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fd891-ce17-7613-a007-f9ef50dc769f",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
