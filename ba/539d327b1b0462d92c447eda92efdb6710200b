@@ -1,0 +1,33 @@
+python/src/mnfst_autofix/core/anonymize.py
+  s_58a5b1690eed9e::t_15cb6011dfc195 29-33
+node/src/core/gate.ts
+  s_58a5b1690eed9e::t_c36c328176cd43 134-146,150-152
+python/tests/test_anthropic.py
+  s_58a5b1690eed9e::t_9f0b7177832062 189-207
+node/tests/index.test.ts
+  s_58a5b1690eed9e::t_cae69a36d6403d 94-96
+  s_58a5b1690eed9e::t_da2ec710b2e923 106-130,132
+  s_58a5b1690eed9e::t_f8067c95e94da3 131
+  s_58a5b1690eed9e::t_3530165876015d 133
+python/src/mnfst_autofix/core/gate.py
+  s_58a5b1690eed9e::t_e58e3c72e45e5b 94-103
+node/src/core/anonymize.ts
+  s_58a5b1690eed9e::t_c27668976287d1 21-23
+  s_58a5b1690eed9e::t_96ad34f31c3312 16-19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "ba539d327b1b0462d92c447eda92efdb6710200b",
+  "prompts": {},
+  "sessions": {
+    "s_58a5b1690eed9e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b86e2157-d32b-43fe-b52e-9985d94479c1",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
