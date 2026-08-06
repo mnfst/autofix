@@ -1,0 +1,24 @@
+node/examples/ai-demo.ts
+  s_58a5b1690eed9e::t_ee2d91ff058d1f 1-78
+node/package.json
+  s_58a5b1690eed9e::t_9e5bd0fff33e0b 4,59-60,64
+  s_58a5b1690eed9e::t_b825ab666e992a 47
+node/package-lock.json
+  s_58a5b1690eed9e::t_3c22a6220171c6 12-13,17,30-114,1225-1231,1549-1565,1615-1632,2188-2197,2627-2633,4010-4019,4103-4113
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "e66e9abc15988dcc87b5e7ecf9e34afb0c2c3ae0",
+  "prompts": {},
+  "sessions": {
+    "s_58a5b1690eed9e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b86e2157-d32b-43fe-b52e-9985d94479c1",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
