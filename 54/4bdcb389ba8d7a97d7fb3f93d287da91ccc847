@@ -1,0 +1,35 @@
+python/README.md
+  s_85bbd417c59b30::t_0e9642cd00a481 80-83
+README.md
+  s_85bbd417c59b30::t_0e9642cd00a481 181-185
+node/tests/wrapper.test.ts
+  s_85bbd417c59b30::t_e33343fac465d9 331-339,341-381
+  s_85bbd417c59b30::t_0e9642cd00a481 340,382-403,423
+python/tests/test_heal_api.py
+  s_85bbd417c59b30::t_0e9642cd00a481 341,362,369
+  s_85bbd417c59b30::t_5eedea1e525e41 304-305,314-315,319,327-330,332,334
+  s_85bbd417c59b30::t_e33343fac465d9 270-303,306-313,316-318,320-326,331,333,335-340
+node/src/core/heal-api.ts
+  s_85bbd417c59b30::t_6a5e3da6808f1a 95-111
+  s_85bbd417c59b30::t_5eedea1e525e41 71,80,92-94
+python/src/mnfst_autofix/core/heal_api.py
+  s_85bbd417c59b30::t_5eedea1e525e41 135,155-166,210-221
+node/README.md
+  s_85bbd417c59b30::t_0e9642cd00a481 99-102
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "544bdcb389ba8d7a97d7fb3f93d287da91ccc847",
+  "prompts": {},
+  "sessions": {
+    "s_85bbd417c59b30": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fd891-ce17-7613-a007-f9ef50dc769f",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
