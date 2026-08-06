@@ -1,0 +1,36 @@
+node/tests/index.test.ts
+  s_58a5b1690eed9e::t_d46f85264cea1d 182
+  s_58a5b1690eed9e::t_d300f04b46231a 158-163,170
+  s_58a5b1690eed9e::t_68de0b4869f786 153-157,164-169,174-181,183-184
+  s_58a5b1690eed9e::t_bfc016c2f9fbd9 171-173
+  s_58a5b1690eed9e::t_420b813f22e10b 120-138
+python/src/mnfst_autofix/core/heal_api.py
+  s_58a5b1690eed9e::t_8ea9eb89534c88 68-69
+  s_58a5b1690eed9e::t_a3310d5bb8612c 38-41
+python/tests/test_heal_api.py
+  s_58a5b1690eed9e::t_a0fe6dbcf65080 369-381
+node/tests/source.test.ts
+  s_58a5b1690eed9e::t_2e1591773a9009 143-145,148-150,154,156
+  s_58a5b1690eed9e::t_460fe621e5c658 142,146-147,151-153,155,157-158
+node/src/core/gate.ts
+  s_58a5b1690eed9e::t_946922346bdd9b 112-115,117-122
+  s_58a5b1690eed9e::t_26d03612393d2b 153-155,162
+node/src/core/engine.ts
+  s_58a5b1690eed9e::t_bbcb67e1068622 146-147
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "ee05729565ba76887e77da2b6c9d1ee37f1c90c2",
+  "prompts": {},
+  "sessions": {
+    "s_58a5b1690eed9e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b86e2157-d32b-43fe-b52e-9985d94479c1",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
