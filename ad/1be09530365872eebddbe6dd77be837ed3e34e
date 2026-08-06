@@ -1,0 +1,40 @@
+node/src/core/heal-api.ts
+  s_58a5b1690eed9e::t_5413becdb5be70 29-32,37
+  s_58a5b1690eed9e::t_d6c143a35c9cdc 58-59,66
+  s_58a5b1690eed9e::t_1f72403ccdae14 75
+  s_58a5b1690eed9e::t_fcf8b81424c803 96,99
+  s_58a5b1690eed9e::t_0d3b47d1361982 81
+  s_58a5b1690eed9e::t_d458f1e5d02514 8
+  s_58a5b1690eed9e::t_cbbe3b28965eb6 22,24-25
+node/tests/source.test.ts
+  s_58a5b1690eed9e::t_be0e50b74e16bc 1,4
+  s_58a5b1690eed9e::t_9a6f354e63ccea 41-124,134-152
+  s_58a5b1690eed9e::t_264520ccc60c46 125-133
+node/src/core/gate.ts
+  s_58a5b1690eed9e::t_e05c004bbfa4a2 144
+  s_58a5b1690eed9e::t_0ca5d5331aa7af 46-47
+  s_58a5b1690eed9e::t_5fd62552e22d94 4-5
+  s_58a5b1690eed9e::t_05368bfcc2dc68 87-94
+node/src/core/engine.ts
+  s_58a5b1690eed9e::t_d613f8a9da87d8 18
+  s_58a5b1690eed9e::t_b9ff1ab4698bad 115
+  s_58a5b1690eed9e::t_1adb4ccb59a25c 96
+  s_58a5b1690eed9e::t_3226e6d26542e7 139
+  s_58a5b1690eed9e::t_87db0af9480177 144-145
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "ad1be09530365872eebddbe6dd77be837ed3e34e",
+  "prompts": {},
+  "sessions": {
+    "s_58a5b1690eed9e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b86e2157-d32b-43fe-b52e-9985d94479c1",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
