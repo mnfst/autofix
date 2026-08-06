@@ -1,0 +1,49 @@
+node/tsup.config.ts
+  s_58a5b1690eed9e::t_c798a6b4c10b26 4
+node/tests/source.test.ts
+  s_58a5b1690eed9e::t_abd9c586faebc8 4,98,111,120,129,136,149,161
+python/pyproject.toml
+  s_58a5b1690eed9e::t_4c4245fca83638 7
+node/src/index.ts
+  s_58a5b1690eed9e::t_a96a7edb6632c0 25
+  s_58a5b1690eed9e::t_897c9b87e72cb8 14-15
+README.md
+  s_58a5b1690eed9e::t_4d1333eaaa1ee2 39
+node/try.mjs
+  s_58a5b1690eed9e::t_055fc583fc3b04 5
+python/src/mnfst_autofix/__init__.py
+  s_58a5b1690eed9e::t_4c4245fca83638 8
+node/src/core/version.ts
+  s_58a5b1690eed9e::t_5398b65e50c5a0 4
+node/tests/anthropic.test.ts
+  s_58a5b1690eed9e::t_f07db4f6562d7b 3
+  s_58a5b1690eed9e::t_595edb03871a45 109-114
+python/src/mnfst_autofix/anthropic/__init__.py
+  s_58a5b1690eed9e::t_4c4245fca83638 16-18
+python/src/mnfst_autofix/openai/__init__.py
+  s_58a5b1690eed9e::t_4c4245fca83638 11-13
+node/package.json
+  s_58a5b1690eed9e::t_4b953a0f6960d6 3
+node/examples/anthropic-demo.ts
+  s_58a5b1690eed9e::t_1692fad0ef809f 6
+node/examples/demo.ts
+  s_58a5b1690eed9e::t_8d4f94842d782f 6
+node/tests/wrapper.test.ts
+  s_58a5b1690eed9e::t_10e47d238536d8 4
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "70ee22884e6e63b54f1c07e676d02a567eb52329",
+  "prompts": {},
+  "sessions": {
+    "s_58a5b1690eed9e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b86e2157-d32b-43fe-b52e-9985d94479c1",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
