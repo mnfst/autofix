@@ -1,0 +1,79 @@
+node/README.md
+  s_f7e8d99abf3b3a::t_9bf2d860bfcb4e 80,84
+python/src/mnfst_autofix/core/anonymize.py
+  s_f7e8d99abf3b3a::t_2c6f185603d6b8 1-5,13-32,34-39,42-43,45-48,50-73,79-85,91,93-104
+  s_f7e8d99abf3b3a::t_c031051b027286 74-78
+python/tests/test_anonymize.py
+  s_f7e8d99abf3b3a::t_c6c50c625c826e 267-273
+  s_f7e8d99abf3b3a::t_c031051b027286 266,274-279
+  s_f7e8d99abf3b3a::t_99037ab2677352 38-39,41,135,137,217-248
+  s_f7e8d99abf3b3a::t_8a55eabd139189 5,7-8
+  s_f7e8d99abf3b3a::t_1ebca50c778e7f 16,22,31,40,48,57,66,78,88,98,108,118,129,136,142,150,152,166,181,193,195,204,214
+  s_f7e8d99abf3b3a::t_289a10afb8ade6 249-265
+python/src/mnfst_autofix/openai/__init__.py
+  s_f7e8d99abf3b3a::t_668e918ab56c54 32,35,43,45
+python/src/mnfst_autofix/anthropic/__init__.py
+  s_f7e8d99abf3b3a::t_668e918ab56c54 37,46
+node/tests/anthropic.test.ts
+  s_f7e8d99abf3b3a::t_78399653b32512 72
+  s_f7e8d99abf3b3a::t_2fd12cf63ef0d8 12,44-46,93,98,130,185
+node/src/core/engine.ts
+  s_f7e8d99abf3b3a::t_2c6f185603d6b8 181-182,210
+node/src/openai/responses.ts
+  s_f7e8d99abf3b3a::t_668e918ab56c54 6-15,26
+python/src/mnfst_autofix/openai/chat.py
+  s_f7e8d99abf3b3a::t_668e918ab56c54 1,4-14
+python/tests/test_wrapper.py
+  s_f7e8d99abf3b3a::t_5b84d1cb2d7646 407
+node/src/anthropic/messages.ts
+  s_f7e8d99abf3b3a::t_668e918ab56c54 7-17,30
+node/src/core/anonymize.ts
+  s_f7e8d99abf3b3a::t_2c6f185603d6b8 1-2,4-7,10-12,14,21-32,34-37,39,42-43,45-50,52-57,61-73,80-83,86,88,92-97,102,104-107
+  s_f7e8d99abf3b3a::t_fed1a0a4cbf917 74-79
+python/src/mnfst_autofix/anthropic/messages.py
+  s_f7e8d99abf3b3a::t_668e918ab56c54 1,4-14
+python/README.md
+  s_f7e8d99abf3b3a::t_9bf2d860bfcb4e 61,65
+python/src/mnfst_autofix/openai/responses.py
+  s_f7e8d99abf3b3a::t_668e918ab56c54 1,4-13
+node/src/openai/chat.ts
+  s_f7e8d99abf3b3a::t_668e918ab56c54 6-15,25
+node/tests/wrapper.test.ts
+  s_f7e8d99abf3b3a::t_78399653b32512 260
+node/src/core/gate.ts
+  s_f7e8d99abf3b3a::t_2c6f185603d6b8 26-27,61,204
+  s_f7e8d99abf3b3a::t_c3bcaf6999a7d6 15-16
+python/src/mnfst_autofix/core/attempt.py
+  s_f7e8d99abf3b3a::t_2c6f185603d6b8 120-121,163
+node/tests/anonymize.test.ts
+  s_f7e8d99abf3b3a::t_289a10afb8ade6 251-267,282
+  s_f7e8d99abf3b3a::t_99037ab2677352 34-35,37,129,131,220-250
+  s_f7e8d99abf3b3a::t_c031051b027286 268,276-281
+  s_f7e8d99abf3b3a::t_c6c50c625c826e 269-275
+  s_f7e8d99abf3b3a::t_1ebca50c778e7f 13,19,27,36,44,53,62,74,84,93,103,113,123,130,136,145,154-155,169,184,196-197,206,216
+  s_f7e8d99abf3b3a::t_8a55eabd139189 4-6
+python/tests/test_anthropic.py
+  s_f7e8d99abf3b3a::t_2fd12cf63ef0d8 29,35-36,138,143,177,301
+  s_f7e8d99abf3b3a::t_78399653b32512 20
+python/src/mnfst_autofix/core/gate.py
+  s_f7e8d99abf3b3a::t_2c6f185603d6b8 18,30
+  s_f7e8d99abf3b3a::t_c3bcaf6999a7d6 42-43
+README.md
+  s_f7e8d99abf3b3a::t_9bf2d860bfcb4e 138-143
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "2c844733f67766a4d8256edffcdbe3bb00820b3c",
+  "prompts": {},
+  "sessions": {
+    "s_f7e8d99abf3b3a": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fd738-d30b-7691-a88c-87cb22f92398",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
