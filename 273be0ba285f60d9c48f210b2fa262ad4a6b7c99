@@ -1,0 +1,30 @@
+try.mjs
+  s_7524d1fe0b6550::t_d3063a874af530 1,10,14-19
+src/openai.ts
+  s_7524d1fe0b6550::t_d3063a874af530 22,64-73,78
+README.md
+  s_7524d1fe0b6550::t_8b67d71b4a23f5 68-69
+package.json
+  s_7524d1fe0b6550::t_aa1bc77f9a87d8 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "273be0ba285f60d9c48f210b2fa262ad4a6b7c99",
+  "prompts": {},
+  "humans": {
+    "h_4314c622e2d856": {
+      "author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  },
+  "sessions": {
+    "s_7524d1fe0b6550": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e4971444-121c-4b42-b5c5-b86825983ee9",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

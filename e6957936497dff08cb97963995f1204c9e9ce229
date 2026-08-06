@@ -1,0 +1,26 @@
+node/README.md
+  s_c7cb74e57e0de3::t_c281b2c6685130 41-42
+  s_c7cb74e57e0de3::t_2736dbb5852d30 35
+README.md
+  s_c7cb74e57e0de3::t_b9340345df25f3 79-80
+  s_c7cb74e57e0de3::t_5587226742a972 67
+python/README.md
+  s_c7cb74e57e0de3::t_172b4ad761ed3c 46-47
+  s_c7cb74e57e0de3::t_bf3af10d7c36a4 40
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "e6957936497dff08cb97963995f1204c9e9ce229",
+  "prompts": {},
+  "sessions": {
+    "s_c7cb74e57e0de3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a4b8f5ce-a4e1-431f-9203-3e378f303e7e",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+try.mjs
+  s_7524d1fe0b6550::t_f0b7e2fe494be6 1-3,11,13,25,29
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "0a7b315901aa332a5f8126d57891c8cdb4b8f322",
+  "prompts": {},
+  "humans": {
+    "h_4314c622e2d856": {
+      "author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  },
+  "sessions": {
+    "s_7524d1fe0b6550": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e4971444-121c-4b42-b5c5-b86825983ee9",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

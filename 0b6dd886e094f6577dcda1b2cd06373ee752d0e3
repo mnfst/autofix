@@ -1,0 +1,66 @@
+README.md
+  s_c7cb74e57e0de3::t_d1d20d5f4e7dcb 1-91
+node/examples/demo.ts
+  s_c7cb74e57e0de3::t_5b1445eea6a913 6
+node/src/openai/index.ts
+  s_c7cb74e57e0de3::t_d5581b7f4b3dfc 11-147
+node/src/openai/chat.ts
+  s_c7cb74e57e0de3::t_e85cbfb207ac76 1-7
+python/src/mnfst_autofix/openai/chat.py
+  s_c7cb74e57e0de3::t_576f0723033340 1-9
+node/tsup.config.ts
+  s_c7cb74e57e0de3::t_a406899d1264a3 4
+python/tests/test_anonymize.py
+  s_c7cb74e57e0de3::t_d8cf11599409b7 1,3-5,13,17-37,44,53,62,69-88,92
+python/src/mnfst_autofix/openai/responses.py
+  s_c7cb74e57e0de3::t_8f546eff24c80e 1-9
+.gitignore
+  s_c7cb74e57e0de3::t_738dbf37f9a1b5 1-15
+node/tests/wrapper.test.ts
+  s_c7cb74e57e0de3::t_c8460f85f90728 203-226
+  s_c7cb74e57e0de3::t_30105290cf7493 3,6
+node/src/core/anonymize.ts
+  s_c7cb74e57e0de3::t_c05bb81f40cb9d 4-52,56-60,63-83,85
+  s_c7cb74e57e0de3::t_a822e1b907acc3 53-55,61
+node/src/openai/responses.ts
+  s_c7cb74e57e0de3::t_f77fd1e171aeff 1-7
+node/package.json
+  s_c7cb74e57e0de3::t_cfa728345c50f7 10
+node/tests/anonymize.test.ts
+  s_c7cb74e57e0de3::t_048c3b1044188e 16-19
+  s_c7cb74e57e0de3::t_617a460a005856 3-5,12,20,22-35,42,51,60,67-86,90
+  s_a54ef750627561::t_6720b0fc438fda 21
+python/src/mnfst_autofix/core/__init__.py
+  s_c7cb74e57e0de3::t_126aa76c837561 1
+python/tests/test_wrapper.py
+  s_c7cb74e57e0de3::t_6399ad415d9307 14
+  s_c7cb74e57e0de3::t_b6fc5dbec95dd4 253-277
+python/src/mnfst_autofix/core/anonymize.py
+  s_c7cb74e57e0de3::t_3e4c37289a8017 4-88
+python/src/mnfst_autofix/openai/__init__.py
+  s_c7cb74e57e0de3::t_a10df0cf14a53d 16-334
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "0b6dd886e094f6577dcda1b2cd06373ee752d0e3",
+  "prompts": {},
+  "sessions": {
+    "s_a54ef750627561": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fd102-b605-7611-80fe-a84c15b1d2a7",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    },
+    "s_c7cb74e57e0de3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a4b8f5ce-a4e1-431f-9203-3e378f303e7e",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+packages/js/README.md
+  s_5ffc5a5ec46540::t_147b7e78efc986 56
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "48adae44454277aa374cd54d5fd4e15e02424ac7",
+  "prompts": {},
+  "humans": {
+    "h_4314c622e2d856": {
+      "author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  },
+  "sessions": {
+    "s_5ffc5a5ec46540": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "68724054-0729-4690-8cbe-bb49fbc84a07",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+docs/autofix-diagram.svg
+  s_c7cb74e57e0de3::t_bc85dbd40e46a7 161,290,308-310,331-333,339
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "3c73c752509742c5df2eabd0f9184cb1f42b3417",
+  "prompts": {},
+  "sessions": {
+    "s_c7cb74e57e0de3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a4b8f5ce-a4e1-431f-9203-3e378f303e7e",
+        "model": "grok-4.5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
