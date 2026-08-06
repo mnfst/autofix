@@ -1,0 +1,21 @@
+node/package.json
+  s_ea6a90df637d8d::t_93c52ac5531302 44
+.github/workflows/ci.yml
+  s_ea6a90df637d8d::t_93c52ac5531302 40
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "902446867ae7861a313776bc8b6785879f933292",
+  "prompts": {},
+  "sessions": {
+    "s_ea6a90df637d8d": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fd83c-5eab-7fa3-93fa-895c91e2eebb",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
