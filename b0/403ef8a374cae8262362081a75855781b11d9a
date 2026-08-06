@@ -1,0 +1,49 @@
+python/src/mnfst_autofix/__init__.py
+  s_58a5b1690eed9e::t_f9559a4396662b 8
+node/src/core/version.ts
+  s_58a5b1690eed9e::t_d09b5efd22b7ef 4
+README.md
+  s_58a5b1690eed9e::t_c8fc20d7b7f98e 41-46
+  s_58a5b1690eed9e::t_02408df821c795 60
+  s_58a5b1690eed9e::t_559a9681f49f52 171
+  s_58a5b1690eed9e::t_0a99d773479b16 48
+  s_58a5b1690eed9e::t_f17fb344c409e1 71-75
+  s_58a5b1690eed9e::t_389e3c423baceb 17,33,38-40,47,49-59,61-70
+  s_95cd0c7ce83419::t_cbe39d25f76037 76
+python/pyproject.toml
+  s_58a5b1690eed9e::t_31d21ba7444ca1 7
+node/README.md
+  s_58a5b1690eed9e::t_cf1d18ad3e78c1 3
+  s_58a5b1690eed9e::t_4f37ff7488a93d 37,42-59,63-66
+  s_58a5b1690eed9e::t_53b25afe20c2ae 15
+  s_58a5b1690eed9e::t_5f38bae9b700d6 60-62
+  s_95cd0c7ce83419::t_e51bd1bc1a1741 67
+node/package.json
+  s_58a5b1690eed9e::t_330eaf1e4b2fef 3
+node/package-lock.json
+  s_95cd0c7ce83419::t_af23c2d630fbea 3,9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "b0403ef8a374cae8262362081a75855781b11d9a",
+  "prompts": {},
+  "sessions": {
+    "s_58a5b1690eed9e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b86e2157-d32b-43fe-b52e-9985d94479c1",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    },
+    "s_95cd0c7ce83419": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fd602-e156-74e1-80a7-464aa7bd3fa7",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

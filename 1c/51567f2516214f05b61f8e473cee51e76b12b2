@@ -1,0 +1,40 @@
+python/README.md
+  s_58a5b1690eed9e::t_172dae1d9af20b 3
+  s_58a5b1690eed9e::t_6f879d3775e25c 63
+  s_58a5b1690eed9e::t_0119b8e9a022b6 61
+node/examples/ai-demo.ts
+  s_58a5b1690eed9e::t_deb702d4b35272 87-101
+README.md
+  s_58a5b1690eed9e::t_b33258c98fb45a 138
+  s_58a5b1690eed9e::t_607d4343b4565d 131-132
+  s_58a5b1690eed9e::t_8836d688bf2e7d 66-67
+  s_58a5b1690eed9e::t_34032af3f4ece2 150-152
+  s_58a5b1690eed9e::t_be51f463ebf752 153
+python/pyproject.toml
+  s_58a5b1690eed9e::t_b4c15ed977bf52 13
+  s_58a5b1690eed9e::t_c187d5e1a4e96b 8
+node/README.md
+  s_58a5b1690eed9e::t_0ff6b5e4da0676 60
+  s_58a5b1690eed9e::t_7ebe3db42f14c0 72
+  s_58a5b1690eed9e::t_6ca30f17c73e3f 84
+  s_58a5b1690eed9e::t_68dc473a2bd9bc 82
+python/tests/test_heal_api.py
+  s_58a5b1690eed9e::t_3649c67b6b9682 211,221-226
+  s_58a5b1690eed9e::t_ee6423aa40011f 227
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "1c51567f2516214f05b61f8e473cee51e76b12b2",
+  "prompts": {},
+  "sessions": {
+    "s_58a5b1690eed9e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b86e2157-d32b-43fe-b52e-9985d94479c1",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

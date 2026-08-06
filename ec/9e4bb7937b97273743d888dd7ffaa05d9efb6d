@@ -1,0 +1,31 @@
+node/tests/package-smoke/types.ts
+  s_11eee25cf95882::t_4d9b8e511c6d34 1-4
+node/tests/package-smoke/runtime.mjs
+  s_11eee25cf95882::t_4d9b8e511c6d34 1-5
+node/tests/package-smoke/package.json
+  s_11eee25cf95882::t_4d9b8e511c6d34 1-4
+.github/workflows/ci.yml
+  s_11eee25cf95882::t_4d9b8e511c6d34 44-45
+node/tsconfig.json
+  s_11eee25cf95882::t_006bf5d55294cf 12-13
+node/scripts/package-smoke.mjs
+  s_11eee25cf95882::t_4d9b8e511c6d34 1-52
+node/package.json
+  s_11eee25cf95882::t_4d9b8e511c6d34 44
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "ec9e4bb7937b97273743d888dd7ffaa05d9efb6d",
+  "prompts": {},
+  "sessions": {
+    "s_11eee25cf95882": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fd739-4531-7cc3-8dee-ad089a0b7511",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

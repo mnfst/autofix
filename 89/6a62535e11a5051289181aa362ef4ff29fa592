@@ -1,0 +1,45 @@
+python/src/mnfst_autofix/core/heal_api.py
+  s_2ea76432e98d58::t_ac50bd38b780fe 18,36-41,117-141,156,158-160,162-169,211,213-215,217-224
+  s_2ea76432e98d58::t_01e72c2e17a06d 70-72,77-83,161,216
+node/README.md
+  s_2ea76432e98d58::t_1f96520f704031 99-102
+python/src/mnfst_autofix/core/engine.py
+  s_2ea76432e98d58::t_1f96520f704031 3
+  s_2ea76432e98d58::t_ac50bd38b780fe 29-36,58-59,65-70,72,135-136,142-147,149
+  s_2ea76432e98d58::t_01e72c2e17a06d 60,71,137,148
+node/tests/wrapper.test.ts
+  s_2ea76432e98d58::t_6561716c179d6b 305-357
+node/src/core/engine.ts
+  s_2ea76432e98d58::t_ac50bd38b780fe 17-24,35-37,61-66
+  s_2ea76432e98d58::t_1f96520f704031 3
+python/README.md
+  s_2ea76432e98d58::t_1f96520f704031 80-83
+node/src/core/heal-api.ts
+  s_2ea76432e98d58::t_59b07351912427 65-85,137
+  s_2ea76432e98d58::t_d733c03da0f9ce 87-89,91-96,100-117,119-121,123,125-129
+  s_2ea76432e98d58::t_ac50bd38b780fe 130-135
+  s_2ea76432e98d58::t_f6491b2c09a963 136
+  s_2ea76432e98d58::t_01e72c2e17a06d 29-31,90,97,118,124,141,146-147
+README.md
+  s_2ea76432e98d58::t_1f96520f704031 181-185
+python/tests/test_heal_api.py
+  s_2ea76432e98d58::t_59b07351912427 327-365
+  s_2ea76432e98d58::t_6561716c179d6b 9,206-324
+  s_2ea76432e98d58::t_679ad076849d53 325-326
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "896a62535e11a5051289181aa362ef4ff29fa592",
+  "prompts": {},
+  "sessions": {
+    "s_2ea76432e98d58": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fd738-ec0f-7c60-8da2-1742b82fc96d",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

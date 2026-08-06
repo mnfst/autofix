@@ -1,0 +1,77 @@
+python/src/mnfst_autofix/core/attempt.py
+  s_58a5b1690eed9e::t_0fc9c00935336d 154,161-165,169
+  s_58a5b1690eed9e::t_811a88069b20c8 18
+python/src/mnfst_autofix/core/anonymize.py
+  s_58a5b1690eed9e::t_c021ec6294686c 77-82
+  s_58a5b1690eed9e::t_a6cfc0787c7645 117-129,132,135-137,140-172
+  s_58a5b1690eed9e::t_0528e9d962d947 18-33
+node/tests/anonymize.test.ts
+  s_58a5b1690eed9e::t_53b90719a494ab 284-385
+  s_58a5b1690eed9e::t_c7e5f5153b0a42 262,264,267-268
+  s_58a5b1690eed9e::t_b2a23fd016b281 3
+python/src/mnfst_autofix/core/engine.py
+  s_58a5b1690eed9e::t_9aca067a1acfee 154-155
+  s_58a5b1690eed9e::t_aaa5ebbfa8c0de 95-96
+node/src/core/heal-api.ts
+  s_58a5b1690eed9e::t_37adcad13f5ecf 16-22
+node/src/openai/responses.ts
+  s_58a5b1690eed9e::t_b5cddf040415f1 13-15
+  s_58a5b1690eed9e::t_564b3fa1761705 8-9
+node/tests/anthropic.test.ts
+  s_58a5b1690eed9e::t_b2a9ce46032470 78
+  s_58a5b1690eed9e::t_5e953083612605 12-13
+  s_58a5b1690eed9e::t_56b7e8f15f5a6d 99-101,106-107
+  s_58a5b1690eed9e::t_744747455d0404 139,194
+  s_58a5b1690eed9e::t_d6f5e3e960221a 230-255
+  s_58a5b1690eed9e::t_c5886a30fd061d 43-46,49-52
+node/src/core/gate.ts
+  s_58a5b1690eed9e::t_4583b9cd858a27 62-63
+  s_58a5b1690eed9e::t_b0a00e39f7d2b1 207
+node/src/core/anonymize.ts
+  s_58a5b1690eed9e::t_eb28f5ef5cd579 16-33
+  s_58a5b1690eed9e::t_6947eb316bc178 79-84,181
+  s_58a5b1690eed9e::t_d622b42c224584 118,122-130,138-140,142-145,149-180
+python/src/mnfst_autofix/openai/chat.py
+  s_58a5b1690eed9e::t_97422ee0fdc755 6-8,14
+python/src/mnfst_autofix/anthropic/messages.py
+  s_58a5b1690eed9e::t_9f0466d49deb7f 6-8,14-15
+node/src/openai/chat.ts
+  s_58a5b1690eed9e::t_0dd306fa01370b 8-10,15-16
+node/src/anthropic/messages.ts
+  s_58a5b1690eed9e::t_96711f6b9714f6 9-11,17-18
+node/src/core/engine.ts
+  s_58a5b1690eed9e::t_0c156ea96be6c5 208-212,215-216,218-220
+  s_58a5b1690eed9e::t_7832dd995d6f23 15-17
+  s_58a5b1690eed9e::t_38b0174ca4c8d7 112
+python/src/mnfst_autofix/openai/responses.py
+  s_58a5b1690eed9e::t_f27ee3c87aeda5 6-7,11-13
+python/tests/test_anonymize.py
+  s_58a5b1690eed9e::t_064c913fee90eb 265,267,270-271
+  s_58a5b1690eed9e::t_ccfb95eccbe5cb 3
+  s_58a5b1690eed9e::t_e09d002cd28743 7-11
+  s_58a5b1690eed9e::t_231e2a663668da 286-385
+python/tests/test_anthropic.py
+  s_58a5b1690eed9e::t_82232b4b2ff1b4 20,29,32-35,38-41
+  s_58a5b1690eed9e::t_f5dfca645493f5 143-145
+  s_58a5b1690eed9e::t_615121a81ae965 185,309
+  s_58a5b1690eed9e::t_bcd3be4aa98132 340-365
+  s_58a5b1690eed9e::t_418de6f8280b5d 150-151
+node/package-lock.json
+  s_58a5b1690eed9e::t_f3b56cc4e6094a 3,9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "cd842a31e999e5ac159de52c8430689c1408b1b4",
+  "prompts": {},
+  "sessions": {
+    "s_58a5b1690eed9e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b86e2157-d32b-43fe-b52e-9985d94479c1",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+python/src/mnfst_autofix/anthropic/__init__.py
+  s_58a5b1690eed9e::t_ff675cf29334db 47
+python/tests/test_heal_api.py
+  s_58a5b1690eed9e::t_afbc2efcf7e54e 70-71
+  s_58a5b1690eed9e::t_dd20d8e53f15cd 329-386
+python/src/mnfst_autofix/core/heal_api.py
+  s_58a5b1690eed9e::t_c1d0a8acd7f314 60-63
+  s_58a5b1690eed9e::t_8829ebcdfc7920 55-56,64
+  s_58a5b1690eed9e::t_99d35396c72941 106,125,151,170
+  s_58a5b1690eed9e::t_f649f807491649 25-28
+python/src/mnfst_autofix/core/engine.py
+  s_58a5b1690eed9e::t_30f91cee046272 169-171,175,181
+  s_58a5b1690eed9e::t_2dc3c12aca1afe 117-118,122
+  s_58a5b1690eed9e::t_fc0cbec8062743 50-51,55
+python/src/mnfst_autofix/openai/__init__.py
+  s_58a5b1690eed9e::t_33d21c02d0e0d2 45
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "b760611cac10b5e91132389b348bdd6162f82c0f",
+  "prompts": {},
+  "sessions": {
+    "s_58a5b1690eed9e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b86e2157-d32b-43fe-b52e-9985d94479c1",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
