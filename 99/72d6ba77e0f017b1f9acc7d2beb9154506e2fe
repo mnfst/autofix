@@ -1,0 +1,34 @@
+node/src/openai/index.ts
+  s_58a5b1690eed9e::t_9d6408464d8d6f 11-13,17-22
+node/src/anthropic/index.ts
+  s_58a5b1690eed9e::t_e0dcfd3d009142 14-15,19-24
+node/src/anthropic/messages.ts
+  s_58a5b1690eed9e::t_7993e1904795e4 8-9,12-19
+node/src/openai/responses.ts
+  s_58a5b1690eed9e::t_dc9f9c67144c5e 6-7,10-15
+node/src/core/gate.ts
+  s_58a5b1690eed9e::t_77c5955f1307d1 78-88
+  s_58a5b1690eed9e::t_cdb857ad32abea 30-39,77
+node/src/core/engine.ts
+  s_58a5b1690eed9e::t_c4fb54f725813d 20-21
+node/src/index.ts
+  s_58a5b1690eed9e::t_5f8aca311fae83 17-20,24-28
+node/src/openai/chat.ts
+  s_58a5b1690eed9e::t_096877d80631a2 6-7,10-15
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "9972d6ba77e0f017b1f9acc7d2beb9154506e2fe",
+  "prompts": {},
+  "sessions": {
+    "s_58a5b1690eed9e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b86e2157-d32b-43fe-b52e-9985d94479c1",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
