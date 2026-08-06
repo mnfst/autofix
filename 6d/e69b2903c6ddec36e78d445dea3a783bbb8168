@@ -1,0 +1,48 @@
+README.md
+  s_58a5b1690eed9e::t_03005a690cf8fe 140-143,150
+node/README.md
+  s_58a5b1690eed9e::t_798eaf3ea57730 80
+tests/anonymize-cases.json
+  s_58a5b1690eed9e::t_447963f0a8e8af 163
+  s_58a5b1690eed9e::t_fc942201c7a295 260,262,269,271
+  s_58a5b1690eed9e::t_0ce7a939fbbaff 328,332
+  s_58a5b1690eed9e::t_fe4d164ba2f1c6 309
+  s_58a5b1690eed9e::t_22493242651af0 229-230,238-239,248-249
+  s_58a5b1690eed9e::t_2f8b716b99e28e 323
+  s_58a5b1690eed9e::t_caef5a3b25ad15 138,366-411
+  s_58a5b1690eed9e::t_8a52c4de09ee8e 198,200
+  s_58a5b1690eed9e::t_6cbb65048f064d 85-91,94-137
+python/README.md
+  s_58a5b1690eed9e::t_798eaf3ea57730 61
+python/src/mnfst_autofix/core/anonymize.py
+  s_58a5b1690eed9e::t_ed828db4868e08 4-10
+  s_58a5b1690eed9e::t_7b4de580a1857c 96-98
+  s_58a5b1690eed9e::t_60e1f0131cc586 45-53,57-60,65,67-69
+  s_58a5b1690eed9e::t_8cc29fce3c40b3 31,35
+python/tests/test_anonymize.py
+  s_58a5b1690eed9e::t_f3f5ff7faaac7a 43-47,50,52
+node/tests/anonymize.test.ts
+  s_58a5b1690eed9e::t_e35bd15dc38935 46-50,53,55
+node/src/core/anonymize.ts
+  s_58a5b1690eed9e::t_e1d86d4e2d56ed 5-11
+  s_58a5b1690eed9e::t_5aae3df25ddcd7 50-58,62-65,71-73
+  s_58a5b1690eed9e::t_2cbbdffadd495f 28,33
+  s_58a5b1690eed9e::t_2215d7d89c4980 99-101
+  s_58a5b1690eed9e::t_7d44ac462807c4 49
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "6de69b2903c6ddec36e78d445dea3a783bbb8168",
+  "prompts": {},
+  "sessions": {
+    "s_58a5b1690eed9e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b86e2157-d32b-43fe-b52e-9985d94479c1",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
