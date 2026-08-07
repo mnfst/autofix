@@ -1,0 +1,21 @@
+python/pyproject.toml
+  s_fb2db32dd00d66::t_cd69da8bf26631 21
+node/examples/ai-demo.ts
+  s_fb2db32dd00d66::t_cd69da8bf26631 68
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "1577279baaaaf86ed4300bf2036299f80b01ad26",
+  "prompts": {},
+  "sessions": {
+    "s_fb2db32dd00d66": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fdb4d-3b71-7663-90c8-e23fca7d5104",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
