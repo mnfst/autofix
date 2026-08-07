@@ -1,0 +1,29 @@
+README.md
+  s_7385a5696fc911::t_71c1103e3b391b 11-13,32-38,45-62,96-106
+  s_7385a5696fc911::t_d508e548a0f563 107
+python/README.md
+  s_7385a5696fc911::t_71c1103e3b391b 7-9,50-59
+  s_7385a5696fc911::t_aaa679799d40fd 60-61
+python/tests/test_wrapper.py
+  s_7385a5696fc911::t_71c1103e3b391b 148-156,158
+  s_7385a5696fc911::t_50dd0cd6232bfb 157,159
+  s_7385a5696fc911::t_3dd8122e620ed4 160-162
+node/README.md
+  s_7385a5696fc911::t_71c1103e3b391b 7-9,32-38,45-62
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "0a1e7dd4197428ea102f8e54890ac843960a3097",
+  "prompts": {},
+  "sessions": {
+    "s_7385a5696fc911": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fdb92-acda-7bd0-b9a2-42db2caa207c",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
