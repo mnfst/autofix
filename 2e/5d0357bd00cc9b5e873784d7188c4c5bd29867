@@ -1,0 +1,19 @@
+python/pyproject.toml
+  s_7385a5696fc911::t_ff21c461af91a1 21
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "2e5d0357bd00cc9b5e873784d7188c4c5bd29867",
+  "prompts": {},
+  "sessions": {
+    "s_7385a5696fc911": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fdb92-acda-7bd0-b9a2-42db2caa207c",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
