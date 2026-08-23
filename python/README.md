@@ -96,6 +96,11 @@ Scalar settings and scalar-only arrays may travel. Prompts, tools, nested arrays
 schema bodies, identity fields, and credential fields stay local. The provider error,
 endpoint origin and path, derived workspace id, and SDK source are also sent.
 
+`autofix(send_messages=True)` (default `False`) opts the top-level `messages`
+list in, verbatim — for teams pointing at their own heal service who want the
+conversation visible next to the failure it caused. It is observability only:
+the heal API still cannot author or rewrite a message on the way back.
+
 ## See heals
 
 ```python

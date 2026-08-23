@@ -49,12 +49,14 @@ class AutofixTransport(httpx.BaseTransport):
                  heal_client: Optional[httpx.Client] = None, *,
                  on_heal: Optional[Callable[[HealEvent], None]] = None,
                  heal_timeout_ms: int = HEAL_TIMEOUT_MS,
-                 source: Optional[str] = None):
+                 source: Optional[str] = None,
+                 send_messages: bool = False):
         self._detect = detect
         self._inner = inner or httpx.HTTPTransport()
         self._owns_inner = inner is None
         self._api = HealApi(heal_client, heal_timeout_ms=heal_timeout_ms, source=source)
         self._on_heal = on_heal
+        self._send_messages = send_messages
 
     def handle_request(self, request: httpx.Request) -> httpx.Response:
         started = time.monotonic()
@@ -76,7 +78,8 @@ class AutofixTransport(httpx.BaseTransport):
         if gate is None:
             return response
         attempt = _Attempt(self._api, self._on_heal, request, response, gate,
-                           int((time.monotonic() - started) * 1000))
+                           int((time.monotonic() - started) * 1000),
+                           send_messages=self._send_messages)
 
         # ── ask ── every failure that clears the gate consults the heal API;
         # the server is the only authority on what the current fix is.
@@ -117,12 +120,14 @@ class AsyncAutofixTransport(httpx.AsyncBaseTransport):
                  heal_client: Optional[httpx.AsyncClient] = None, *,
                  on_heal: Optional[Callable[[HealEvent], None]] = None,
                  heal_timeout_ms: int = HEAL_TIMEOUT_MS,
-                 source: Optional[str] = None):
+                 source: Optional[str] = None,
+                 send_messages: bool = False):
         self._detect = detect
         self._inner = inner or httpx.AsyncHTTPTransport()
         self._owns_inner = inner is None
         self._api = AsyncHealApi(heal_client, heal_timeout_ms=heal_timeout_ms, source=source)
         self._on_heal = on_heal
+        self._send_messages = send_messages
 
     async def handle_async_request(self, request: httpx.Request) -> httpx.Response:
         started = time.monotonic()
@@ -140,7 +145,8 @@ class AsyncAutofixTransport(httpx.AsyncBaseTransport):
         if gate is None:
             return response
         attempt = _Attempt(self._api, self._on_heal, request, response, gate,
-                           int((time.monotonic() - started) * 1000))
+                           int((time.monotonic() - started) * 1000),
+                           send_messages=self._send_messages)
 
         try:
             heal = await self._api.heal(attempt.start_heal())

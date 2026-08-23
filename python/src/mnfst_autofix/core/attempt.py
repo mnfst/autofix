@@ -94,12 +94,13 @@ class _Attempt:
 
     def __init__(self, api: _OutcomeReporter, on_heal: Optional[Callable[[HealEvent], None]],
                  request: httpx.Request, response: httpx.Response,
-                 gate: Healable, provider_ms: int):
+                 gate: Healable, provider_ms: int, *, send_messages: bool = False):
         self._api = api
         self._on_heal = on_heal
         self._request = request
         self._gate = gate
         self._provider_ms = provider_ms
+        self._send_messages = send_messages
         self.original = response
         self.trace_id = str(uuid.uuid4())
         self.url = gate.url
@@ -117,8 +118,9 @@ class _Attempt:
             "provider": self._gate.route.provider,
             "api": self._gate.route.api,
             "url": self.url,
-            # ANONYMIZED: the settings leave, the structure and the content stay.
-            "request": strip_request(self._gate.request),
+            # ANONYMIZED: the settings leave, the structure and the content stay -
+            # unless the caller opted the messages in.
+            "request": strip_request(self._gate.request, send_messages=self._send_messages),
             "response": {
                 "statusCode": self.original.status_code,
                 "error": self._gate.error,

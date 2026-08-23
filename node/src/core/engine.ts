@@ -26,6 +26,8 @@ export interface AutofixOptions {
   fetch?: typeof globalThis.fetch;     // inner transport (default: global fetch)
   healTimeoutMs?: number;              // budget for each heal-API call, including
                                        // the outcome report (default 5000)
+  sendMessages?: boolean;              // send the messages array to the heal API
+                                       // (default false — see core/anonymize.ts)
 }
 
 export interface HealEvent {
@@ -63,7 +65,7 @@ export function createAutofix(adapter: Adapter) {
 
       return healAndReplay(
         { inner, api, onHeal: options.onHeal, input, init: init!, original: res,
-          providerMs: Date.now() - started },
+          providerMs: Date.now() - started, sendMessages: options.sendMessages },
         healable,
       );
     };
@@ -79,6 +81,7 @@ interface Attempt {
   init: RequestInit;
   original: Response;
   providerMs: number;
+  sendMessages?: boolean;
 }
 
 interface Replayed { replay: Response; replayMs: number }
@@ -179,8 +182,9 @@ function healPayload(attempt: Attempt, gate: Healable, traceId: string) {
     provider: gate.provider,
     api: gate.api,
     url: gate.url,
-    // ANONYMIZED: the settings leave, the structure and the content stay.
-    request: stripRequest(gate.request),
+    // ANONYMIZED: the settings leave, the structure and the content stay —
+    // unless the caller opted the messages in.
+    request: stripRequest(gate.request, { sendMessages: attempt.sendMessages }),
     response: {
       statusCode: attempt.original.status,
       error: gate.error,

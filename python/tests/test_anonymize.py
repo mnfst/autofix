@@ -23,6 +23,11 @@ def test_strip(case):
     assert strip_request(case["request"]) == case["sent"]
 
 
+@pytest.mark.parametrize("case", CASES["strip_send_messages"], ids=lambda c: c["name"])
+def test_strip_send_messages(case):
+    assert strip_request(case["request"], send_messages=True) == case["sent"]
+
+
 @pytest.mark.parametrize("case", CASES["merge"], ids=lambda c: c["name"])
 def test_merge(case):
     assert merge_healed_body(case["request"], case["healed"]) == case["replay"]

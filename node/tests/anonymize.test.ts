@@ -15,11 +15,17 @@ interface Case {
 }
 const cases = JSON.parse(
   readFileSync(new URL('../../tests/anonymize-cases.json', import.meta.url), 'utf8'),
-) as { strip: Case[]; merge: Required<Case>[] };
+) as { strip: Case[]; strip_send_messages: Case[]; merge: Required<Case>[] };
 
 for (const c of cases.strip) {
   test(`strip: ${c.name}`, () => {
     assert.deepEqual(stripRequest(c.request), c.sent);
+  });
+}
+
+for (const c of cases.strip_send_messages) {
+  test(`strip with sendMessages: ${c.name}`, () => {
+    assert.deepEqual(stripRequest(c.request, { sendMessages: true }), c.sent);
   });
 }
 

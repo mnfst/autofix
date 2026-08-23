@@ -85,9 +85,26 @@ function sentObject(source: Record<string, unknown>): Record<string, unknown> {
   return kept;
 }
 
+/** Caller-chosen relaxations of the boundary. Nothing here is on by default. */
+export interface StripOptions {
+  /**
+   * Send the top-level `messages` array to the heal API verbatim, content and
+   * all. Off by default. For callers who run their own heal service and want
+   * the conversation visible next to the failure it caused. Observability
+   * only: the merge below never consults this, so the heal API still cannot
+   * author or rewrite a message even after being shown them.
+   */
+  sendMessages?: boolean;
+}
+
 /** The request as the heal API sees it: the settings, and nothing else. */
-export function stripRequest(request: Record<string, unknown>): Record<string, unknown> {
-  return sentObject(request);
+export function stripRequest(request: Record<string, unknown>,
+                             options: StripOptions = {}): Record<string, unknown> {
+  const kept = sentObject(request);
+  if (options.sendMessages && Array.isArray(request.messages)) {
+    kept.messages = structuredClone(request.messages);
+  }
+  return kept;
 }
 
 /**
