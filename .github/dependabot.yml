@@ -1,0 +1,29 @@
+version: 2
+
+# Grouped and monthly. The Node package has zero runtime dependencies and
+# Python has one, so almost everything here is dev tooling and a PR per bump
+# would be noise.
+updates:
+  - package-ecosystem: npm
+    directory: /node
+    schedule:
+      interval: monthly
+    groups:
+      node-dev:
+        patterns: ['*']
+
+  - package-ecosystem: pip
+    directory: /python
+    schedule:
+      interval: monthly
+    groups:
+      python-dev:
+        patterns: ['*']
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      actions:
+        patterns: ['*']

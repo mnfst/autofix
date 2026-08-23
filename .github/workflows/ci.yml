@@ -1,0 +1,99 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+# CI only ever reads. Publishing is publish.yml's job, and a fork's PR should
+# not get a token that can do more than check itself out.
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  node:
+    name: Node ${{ matrix.node-version }} tests
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # The floor package.json's `engines` promises, and current.
+        node-version: ['18.17', '20', '22']
+    defaults:
+      run:
+        working-directory: node
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+          cache-dependency-path: node/package-lock.json
+      - run: npm ci
+      - run: npm test
+      # Lint, typecheck and coverage thresholds don't vary by runtime, and the
+      # coverage flags need Node 22. Once each.
+      - name: Lint
+        if: matrix.node-version == '22'
+        run: npm run lint
+      - name: Typecheck
+        if: matrix.node-version == '22'
+        run: npm run typecheck
+      - name: Coverage
+        if: matrix.node-version == '22'
+        run: npm run test:coverage
+      - name: Package smoke test
+        run: npm run test:package
+
+  python:
+    name: Python ${{ matrix.python-version }} tests
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # Every version pyproject.toml claims to support.
+        python-version: ['3.9', '3.10', '3.11', '3.12', '3.13']
+    defaults:
+      run:
+        working-directory: python
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: python/pyproject.toml
+      - run: pip install -e ".[dev]"
+      - name: Lint
+        if: matrix.python-version == '3.12'
+        run: ruff check .
+      - run: pytest -q --cov=mnfst_autofix --cov-report=term-missing --cov-fail-under=100
+
+  # Branch protection requires the two names below, and a matrix reports one
+  # status per leg ("Node 22 tests", …) rather than one for the job. These are
+  # the stable façade over the matrices: adding or dropping a runtime changes
+  # the legs, never the required check.
+  #
+  # `if: always()` is load-bearing. Without it a failing matrix skips this job,
+  # and a skipped required check sits pending forever instead of failing.
+  node-tests:
+    name: Node tests
+    needs: node
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Every Node version passed
+        run: '[ "${{ needs.node.result }}" = "success" ]'
+
+  python-tests:
+    name: Python tests
+    needs: python
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Every Python version passed
+        run: '[ "${{ needs.python.result }}" = "success" ]'
