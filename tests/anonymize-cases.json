@@ -1,0 +1,425 @@
+{
+  "note": "The privacy boundary, stated once for both packages. node/tests/anonymize.test.ts and python/tests/test_anonymize.py both run every case here, so 'Node and Python behave identically' is checked rather than believed. `strip` cases assert what the heal API is shown; `merge` cases assert the body that gets replayed.",
+
+  "strip": [
+    {
+      "name": "prompts, tools and system never travel; the settings do",
+      "request": {
+        "model": "gpt-5-mini",
+        "temperature": 0.2,
+        "stream": true,
+        "messages": [{ "role": "user", "content": "SECRET" }],
+        "input": "SECRET",
+        "instructions": "SECRET",
+        "system": "SECRET",
+        "tools": [{ "type": "function", "name": "SECRET_TOOL" }]
+      },
+      "sent": { "model": "gpt-5-mini", "temperature": 0.2, "stream": true }
+    },
+    {
+      "name": "a brand-new array field stays home without anyone naming it",
+      "request": {
+        "model": "m",
+        "future_content_blocks": [{ "kind": "text", "text": "SECRET" }],
+        "temperature": 0.2
+      },
+      "sent": { "model": "m", "temperature": 0.2 }
+    },
+    {
+      "name": "a brand-new key named content stays home at any depth",
+      "request": {
+        "model": "m",
+        "future_wrapper": { "content": "SECRET", "enabled": true }
+      },
+      "sent": { "model": "m", "future_wrapper": { "enabled": true } }
+    },
+    {
+      "name": "an object whose only children are forbidden is omitted, not sent as {}",
+      "request": {
+        "model": "m",
+        "prompt_template": { "instructions": "SECRET", "system": "SECRET" },
+        "empty": {}
+      },
+      "sent": { "model": "m" }
+    },
+    {
+      "name": "an unknown custom scalar setting travels for forward-compatible healing",
+      "request": {
+        "model": "claude-opus-4-6",
+        "future_sampling": { "aggressiveness": 3, "mode": "greedy" },
+        "messages": [{ "role": "user", "content": "SECRET" }]
+      },
+      "sent": {
+        "model": "claude-opus-4-6",
+        "future_sampling": { "aggressiveness": 3, "mode": "greedy" }
+      }
+    },
+    {
+      "name": "frequency_penalty travels to Anthropic — that is how it gets healed",
+      "request": {
+        "model": "claude-opus-4-6",
+        "max_tokens": 100,
+        "frequency_penalty": 0.5,
+        "system": "SECRET_SYSTEM_PROMPT",
+        "messages": [{ "role": "user", "content": "SECRET" }]
+      },
+      "sent": { "model": "claude-opus-4-6", "max_tokens": 100, "frequency_penalty": 0.5 }
+    },
+    {
+      "name": "no MCP token, no predicted document, no end-user identity on the wire",
+      "request": {
+        "model": "m",
+        "mcp_servers": [
+          { "type": "url", "url": "https://mcp.example.com", "authorization_token": "MCP_BEARER_SECRET" }
+        ],
+        "prediction": { "type": "content", "content": "THE USERS WHOLE DOCUMENT" },
+        "metadata": { "customer": "acme-42" },
+        "user": "user-99",
+        "safety_identifier": "sid-1",
+        "prompt_cache_key": "cache-1",
+        "future_hosted_tool": { "authorization_token": "NESTED_BEARER_SECRET", "timeout_ms": 30 }
+      },
+      "sent": { "model": "m", "future_hosted_tool": { "timeout_ms": 30 } }
+    },
+    {
+      "name": "stop sequences are user text, however they are spelled — the name beats the shape",
+      "request": {
+        "model": "m",
+        "stop": ["Customer: SECRET_NAME"],
+        "stop_sequences": ["\n\nHuman: SECRET"],
+        "top_p": 0.9
+      },
+      "sent": { "model": "m", "top_p": 0.9 }
+    },
+    {
+      "name": "scalar-only arrays under known and custom keys travel",
+      "request": {
+        "model": "gpt-5-mini",
+        "modalities": ["text", "audio"],
+        "include": ["reasoning.encrypted_content"],
+        "fallbacks": ["gpt-5", "gpt-5-mini"],
+        "seeds": [1, 2.5, true, null],
+        "no_options": []
+      },
+      "sent": {
+        "model": "gpt-5-mini",
+        "modalities": ["text", "audio"],
+        "include": ["reasoning.encrypted_content"],
+        "fallbacks": ["gpt-5", "gpt-5-mini"],
+        "seeds": [1, 2.5, true, null],
+        "no_options": []
+      }
+    },
+    {
+      "name": "one nested thing anywhere in an array keeps the whole array home",
+      "request": {
+        "model": "m",
+        "messages": [{ "role": "user", "content": "SECRET" }],
+        "tools": [{ "type": "function", "name": "SECRET_TOOL" }],
+        "mixed": [1, { "a": "SECRET" }],
+        "matrix": [["SECRET"], [2]],
+        "temperature": 0.2
+      },
+      "sent": { "model": "m", "temperature": 0.2 }
+    },
+    {
+      "name": "where the end user is stays home; how the search is tuned does not",
+      "request": {
+        "model": "m",
+        "web_search_options": {
+          "search_context_size": "high",
+          "user_location": {
+            "type": "approximate",
+            "approximate": { "city": "SECRET_CITY", "region": "SECRET", "country": "FR" }
+          }
+        }
+      },
+      "sent": { "model": "m", "web_search_options": { "search_context_size": "high" } }
+    },
+    {
+      "name": "the shape of the structured output travels, the schema never does",
+      "request": {
+        "model": "gpt-5-mini",
+        "response_format": { "type": "json_schema", "json_schema": { "name": "SECRET_SCHEMA" } },
+        "text": {
+          "verbosity": "low",
+          "format": { "type": "json_schema", "schema": { "name": "SECRET_SCHEMA" } }
+        }
+      },
+      "sent": {
+        "model": "gpt-5-mini",
+        "response_format": { "type": "json_schema" },
+        "text": { "verbosity": "low", "format": { "type": "json_schema" } }
+      }
+    },
+    {
+      "name": "the transport fields travel — the heal API has to see them",
+      "request": {
+        "model": "m",
+        "stream": true,
+        "stream_options": { "include_usage": true },
+        "n": 1,
+        "store": false,
+        "messages": [{ "role": "user", "content": "SECRET" }]
+      },
+      "sent": {
+        "model": "m",
+        "stream": true,
+        "stream_options": { "include_usage": true },
+        "n": 1,
+        "store": false
+      }
+    },
+    {
+      "name": "Anthropic's nested knobs travel, its output schema does not",
+      "request": {
+        "model": "claude-sonnet-4-6",
+        "thinking": { "type": "enabled", "budget_tokens": 2048, "future": "beta" },
+        "output_config": { "effort": "high", "format": { "schema": { "secret": true } } },
+        "tool_choice": { "type": "auto", "disable_parallel_tool_use": false }
+      },
+      "sent": {
+        "model": "claude-sonnet-4-6",
+        "thinking": { "type": "enabled", "budget_tokens": 2048, "future": "beta" },
+        "output_config": { "effort": "high" },
+        "tool_choice": { "type": "auto", "disable_parallel_tool_use": false }
+      }
+    },
+    {
+      "name": "a degenerate value is a value: null is a scalar, not a container",
+      "request": { "model": "m", "text": null, "input": "SECRET" },
+      "sent": { "model": "m", "text": null }
+    }
+  ],
+
+  "merge": [
+    {
+      "name": "the healed body owns the settings it names",
+      "request": { "model": "gpt-5-mini", "temperature": 0.2, "messages": [{ "role": "user" }] },
+      "healed": { "model": "gpt-5-mini", "temperature": 1 },
+      "replay": { "model": "gpt-5-mini", "temperature": 1, "messages": [{ "role": "user" }] }
+    },
+    {
+      "name": "a param the heal leaves out is dropped, with no operation involved",
+      "request": {
+        "model": "claude-opus-4-6",
+        "max_tokens": 100,
+        "frequency_penalty": 0.5,
+        "system": "SECRET_SYSTEM_PROMPT",
+        "messages": [{ "role": "user", "content": "SECRET" }]
+      },
+      "healed": { "model": "claude-opus-4-6", "max_tokens": 100 },
+      "replay": {
+        "model": "claude-opus-4-6",
+        "max_tokens": 100,
+        "system": "SECRET_SYSTEM_PROMPT",
+        "messages": [{ "role": "user", "content": "SECRET" }]
+      }
+    },
+    {
+      "name": "a nested knob nobody listed can be healed",
+      "request": { "model": "m", "future_sampling": { "aggressiveness": 3, "mode": "greedy" } },
+      "healed": { "model": "m", "future_sampling": { "aggressiveness": 1, "mode": "greedy" } },
+      "replay": { "model": "m", "future_sampling": { "aggressiveness": 1, "mode": "greedy" } }
+    },
+    {
+      "name": "a heal cannot author content, tools or identity — the original wins",
+      "request": {
+        "model": "m",
+        "messages": [{ "role": "user", "content": "REAL" }],
+        "tools": [{ "name": "REAL_TOOL" }],
+        "user": "user-99",
+        "mcp_servers": [
+          { "type": "url", "url": "https://mcp.example.com", "authorization_token": "REAL" }
+        ]
+      },
+      "healed": {
+        "model": "m2",
+        "messages": [{ "role": "user", "content": "INJECTED" }],
+        "tools": [{ "name": "INJECTED_TOOL" }],
+        "input": "INJECTED",
+        "system": "INJECTED",
+        "user": "INJECTED",
+        "metadata": { "injected": true },
+        "mcp_servers": [{ "url": "https://evil.example.com" }]
+      },
+      "replay": {
+        "model": "m2",
+        "messages": [{ "role": "user", "content": "REAL" }],
+        "tools": [{ "name": "REAL_TOOL" }],
+        "user": "user-99",
+        "mcp_servers": [
+          { "type": "url", "url": "https://mcp.example.com", "authorization_token": "REAL" }
+        ]
+      }
+    },
+    {
+      "name": "a heal cannot delete content either — omission only speaks for what travelled",
+      "request": {
+        "model": "m",
+        "messages": [{ "role": "user", "content": "REAL" }],
+        "system": "REAL_SYSTEM",
+        "tools": [{ "name": "REAL_TOOL" }],
+        "prediction": { "type": "content", "content": "REAL_DOC" },
+        "temperature": 0.2
+      },
+      "healed": { "model": "m" },
+      "replay": {
+        "model": "m",
+        "messages": [{ "role": "user", "content": "REAL" }],
+        "system": "REAL_SYSTEM",
+        "tools": [{ "name": "REAL_TOOL" }],
+        "prediction": { "type": "content", "content": "REAL_DOC" }
+      }
+    },
+    {
+      "name": "the user's schema outlives a heal of the format that carries it",
+      "request": {
+        "model": "m",
+        "text": { "verbosity": "low", "format": { "type": "json_schema", "schema": { "name": "REAL" } } }
+      },
+      "healed": {
+        "model": "m",
+        "text": { "verbosity": "high", "format": { "type": "text", "schema": { "name": "INJECTED" } } }
+      },
+      "replay": {
+        "model": "m",
+        "text": { "verbosity": "high", "format": { "type": "text", "schema": { "name": "REAL" } } }
+      }
+    },
+    {
+      "name": "a heal that drops the format type cannot take the caller's schema with it",
+      "request": {
+        "model": "m",
+        "response_format": { "type": "json_schema", "json_schema": { "name": "REAL" } }
+      },
+      "healed": { "model": "m2" },
+      "replay": {
+        "model": "m2",
+        "response_format": { "json_schema": { "name": "REAL" } }
+      }
+    },
+    {
+      "name": "the caller owns streaming, spend and retention in both directions",
+      "request": {
+        "model": "m",
+        "stream": true,
+        "stream_options": { "include_usage": true },
+        "n": 1,
+        "messages": [{ "role": "user" }]
+      },
+      "healed": {
+        "model": "gpt-5",
+        "stream": false,
+        "stream_options": { "include_usage": false },
+        "n": 50,
+        "store": true
+      },
+      "replay": {
+        "model": "gpt-5",
+        "stream": true,
+        "stream_options": { "include_usage": true },
+        "n": 1,
+        "messages": [{ "role": "user" }]
+      }
+    },
+    {
+      "name": "a heal may add a setting the caller never sent",
+      "request": { "model": "m", "messages": [{ "role": "user" }] },
+      "healed": { "model": "m", "max_tokens": 512, "thinking": { "type": "enabled" } },
+      "replay": {
+        "model": "m",
+        "messages": [{ "role": "user" }],
+        "max_tokens": 512,
+        "thinking": { "type": "enabled" }
+      }
+    },
+    {
+      "name": "a container the heal empties is dropped once nothing is left in it",
+      "request": { "model": "m", "thinking": { "type": "enabled", "budget_tokens": 8000 } },
+      "healed": { "model": "m" },
+      "replay": { "model": "m" }
+    },
+    {
+      "name": "a heal that answers with the wrong shape cannot delete what stayed home",
+      "request": {
+        "model": "m",
+        "text": { "format": { "type": "json_schema", "schema": { "name": "REAL" } } }
+      },
+      "healed": { "model": "m", "text": "a string where an object belongs" },
+      "replay": { "model": "m", "text": { "format": { "schema": { "name": "REAL" } } } }
+    },
+    {
+      "name": "a container that never travelled comes back untouched",
+      "request": {
+        "model": "m",
+        "future_provider_option": { "content": "DO_NOT_SEND" },
+        "temperature": 0.2
+      },
+      "healed": { "model": "m2", "future_provider_option": { "injected": true }, "temperature": 0.2 },
+      "replay": {
+        "model": "m2",
+        "future_provider_option": { "content": "DO_NOT_SEND" },
+        "temperature": 0.2
+      }
+    },
+    {
+      "name": "an array of plain values is healed like any other setting",
+      "request": { "model": "m", "modalities": ["text"], "messages": [{ "role": "user" }] },
+      "healed": { "model": "m", "modalities": ["text", "audio"] },
+      "replay": {
+        "model": "m",
+        "modalities": ["text", "audio"],
+        "messages": [{ "role": "user" }]
+      }
+    },
+    {
+      "name": "an array of plain values the heal leaves out is dropped like any other setting",
+      "request": { "model": "m", "modalities": ["text", "audio"], "temperature": 0.2 },
+      "healed": { "model": "m", "temperature": 0.2 },
+      "replay": { "model": "m", "temperature": 0.2 }
+    },
+    {
+      "name": "a heal cannot smuggle structure back in through an array the caller sent",
+      "request": { "model": "m", "modalities": ["text"] },
+      "healed": { "model": "m", "modalities": [{ "type": "INJECTED" }] },
+      "replay": { "model": "m" }
+    },
+    {
+      "name": "where the end user is never travelled, so a heal cannot move them",
+      "request": {
+        "model": "m",
+        "web_search_options": {
+          "search_context_size": "low",
+          "user_location": { "approximate": { "city": "REAL_CITY" } }
+        }
+      },
+      "healed": {
+        "model": "m",
+        "web_search_options": {
+          "search_context_size": "high",
+          "user_location": { "approximate": { "city": "INJECTED_CITY" } }
+        }
+      },
+      "replay": {
+        "model": "m",
+        "web_search_options": {
+          "search_context_size": "high",
+          "user_location": { "approximate": { "city": "REAL_CITY" } }
+        }
+      }
+    },
+    {
+      "name": "a heal cannot reach into an array to edit one element",
+      "request": {
+        "model": "m",
+        "mcp_servers": [{ "url": "https://mcp.example.com", "require_approval": "always" }]
+      },
+      "healed": { "model": "m", "mcp_servers": [{ "require_approval": "never" }] },
+      "replay": {
+        "model": "m",
+        "mcp_servers": [{ "url": "https://mcp.example.com", "require_approval": "always" }]
+      }
+    }
+  ]
+}
