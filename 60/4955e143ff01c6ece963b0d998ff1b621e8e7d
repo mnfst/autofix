@@ -1,0 +1,27 @@
+python/tests/test_anonymize.py
+  s_c67ad0566d2280::t_784a3267e5ae66 1-60
+python/tests/test_anthropic.py
+  s_c67ad0566d2280::t_c5bc10c0f5b007 1-398
+python/tests/test_heal_api.py
+  s_c67ad0566d2280::t_fd25f1d92f4d7f 1-438
+python/tests/test_version.py
+  s_c67ad0566d2280::t_e77e116362db1d 1-37
+python/tests/test_wrapper.py
+  s_c67ad0566d2280::t_60c03893823b20 1-1105
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "604955e143ff01c6ece963b0d998ff1b621e8e7d",
+  "prompts": {},
+  "sessions": {
+    "s_c67ad0566d2280": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a03087-0a72-7280-85a4-369daf347cdb",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
