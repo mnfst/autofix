@@ -1,0 +1,25 @@
+name: Feature request
+description: A provider, a route, or a behaviour autofix should have.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: The failing call you want handled, not the solution you have in mind.
+    validations:
+      required: true
+
+  - type: textarea
+    id: idea
+    attributes:
+      label: What you'd do about it
+      description: Optional.
+
+  - type: checkboxes
+    id: both
+    attributes:
+      label: Scope
+      options:
+        - label: This should land in both the Node and Python packages
+          required: false

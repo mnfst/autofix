@@ -1,0 +1,38 @@
+name: Bug report
+description: Autofix did something wrong, or got in the way of a request.
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you expected, and what you got instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction
+      description: >
+        The smallest code that shows it. Redact your key and your prompts —
+        we don't need either.
+      render: text
+    validations:
+      required: true
+
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: Autofix, the SDK it wraps, and Node or Python.
+      placeholder: "@mnfst/autofix 0.1.0, openai 4.104.0, node 22.11"
+    validations:
+      required: true
+
+  - type: textarea
+    id: debug
+    attributes:
+      label: AUTOFIX_DEBUG=1 output
+      description: Optional, and the fastest way to a fix. Check it for anything private before pasting.
+      render: text
