@@ -1,0 +1,42 @@
+node/tests/anthropic.test.ts
+  s_c67ad0566d2280::t_a89d89138f5b3e 55
+node/src/core/heal-api.ts
+  s_c67ad0566d2280::t_a89d89138f5b3e 1,29,44-51
+node/README.md
+  s_c67ad0566d2280::t_a89d89138f5b3e 14-18
+README.md
+  s_c67ad0566d2280::t_a89d89138f5b3e 5-9
+node/tests/wrapper.test.ts
+  s_c67ad0566d2280::t_a89d89138f5b3e 56,70,158-159,245-257
+python/src/mnfst_autofix/core/heal_api.py
+  s_c67ad0566d2280::t_a89d89138f5b3e 1,24,74-76
+python/tests/test_heal_api.py
+  s_c67ad0566d2280::t_a89d89138f5b3e 45,374-377
+  s_c67ad0566d2280::t_5f55d13a0ecd7c 378-379
+python/tests/test_wrapper.py
+  s_c67ad0566d2280::t_a89d89138f5b3e 43,369-370
+SECURITY.md
+  s_c67ad0566d2280::t_a89d89138f5b3e 53-54
+python/README.md
+  s_c67ad0566d2280::t_a89d89138f5b3e 14-18
+node/examples/demo.ts
+  s_c67ad0566d2280::t_a89d89138f5b3e 14
+.env.example
+  s_c67ad0566d2280::t_a89d89138f5b3e 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "a2134c7ec498636b8bc2a33b93db3e79d984ee03",
+  "prompts": {},
+  "sessions": {
+    "s_c67ad0566d2280": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a03087-0a72-7280-85a4-369daf347cdb",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
