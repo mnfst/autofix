@@ -1,0 +1,183 @@
+name: Publish
+
+# Publishes a package whose version is not yet on its registry. A push to main
+# that bumps a version ships it; anything else is a no-op, because the version
+# check below skips a version the registry already has.
+#
+# Two things have to exist outside this file or the first run fails:
+#   - npm: an NPM_TOKEN repo secret, from a classic Automation token (a Publish
+#     token asks for an OTP and hangs). Swap it for trusted publishing once
+#     @mnfst/autofix exists on npm and can be configured.
+#   - PyPI: a trusted publisher for project mnfst-autofix, owner mnfst, repo
+#     autofix, workflow publish.yml, no environment. No token.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'node/package.json'
+      - 'node/src/**'
+      - 'python/pyproject.toml'
+      - 'python/src/**'
+      - '.github/workflows/publish.yml'
+  workflow_dispatch:
+    inputs:
+      package:
+        description: Which package to publish
+        required: true
+        type: choice
+        options:
+          - both
+          - node
+          - python
+
+permissions:
+  contents: write
+  id-token: write
+
+# Serialise every publish. The "already on the registry?" check is a read
+# followed by a write, so two runs at once can both decide to publish the same
+# version. cancel-in-progress stays false: killing a half-finished upload is
+# worse than waiting for it.
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  publish-node:
+    name: Publish @mnfst/autofix
+    # `inputs` is empty on push, so the dispatch conditions are false there and
+    # both jobs would skip. The event check is what makes the push trigger work.
+    if: github.event_name == 'push' || inputs.package == 'both' || inputs.package == 'node'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: node
+    steps:
+      # Full history: the release notes below diff against the previous tag.
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          registry-url: 'https://registry.npmjs.org/'
+          cache: npm
+          cache-dependency-path: node/package-lock.json
+
+      - name: Check if version needs publishing
+        id: version
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          NAME=$(node -p "require('./package.json').name")
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "name=$NAME" >> "$GITHUB_OUTPUT"
+          if npm view "${NAME}@${VERSION}" version >/dev/null 2>&1; then
+            echo "${NAME}@${VERSION} already on npm — skipping."
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install, test, build
+        if: steps.version.outputs.publish == 'true'
+        run: |
+          npm ci
+          npm test
+          npm run build
+
+      - name: Publish
+        if: steps.version.outputs.publish == 'true'
+        run: npm publish --access public --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Tag and release
+        if: steps.version.outputs.publish == 'true'
+        working-directory: ${{ github.workspace }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="js-v${{ steps.version.outputs.version }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag "$TAG"
+          git push origin "$TAG"
+          # Notes diff against the last *node* tag. Left to itself gh picks the
+          # newest release of either package and reports python's commits here.
+          # Line 1 is the tag just pushed, so line 2 is the predecessor; on a
+          # first release there is none and gh falls back to the full history.
+          ARGS=(--generate-notes)
+          PREV=$(git tag -l 'js-v*' --sort=-v:refname | sed -n 2p)
+          if [ -n "$PREV" ]; then ARGS+=(--notes-start-tag "$PREV"); fi
+          gh release create "$TAG" \
+            --title "@mnfst/autofix ${{ steps.version.outputs.version }}" \
+            "${ARGS[@]}"
+
+  publish-python:
+    name: Publish mnfst-autofix
+    if: github.event_name == 'push' || inputs.package == 'both' || inputs.package == 'python'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: python
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: python/pyproject.toml
+
+      - name: Check if version needs publishing
+        id: version
+        run: |
+          VERSION=$(python -c "import tomllib; print(tomllib.load(open('pyproject.toml','rb'))['project']['version'])")
+          NAME=$(python -c "import tomllib; print(tomllib.load(open('pyproject.toml','rb'))['project']['name'])")
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "name=$NAME" >> "$GITHUB_OUTPUT"
+          # 200 = on PyPI; anything else → try to publish. A 5xx from pypi.org
+          # lands here too, which is why the upload sets skip-existing.
+          CODE=$(curl -s -o /dev/null -w '%{http_code}' "https://pypi.org/pypi/${NAME}/${VERSION}/json")
+          if [ "$CODE" = "200" ]; then
+            echo "${NAME}==${VERSION} already on PyPI — skipping."
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install, test, build
+        if: steps.version.outputs.publish == 'true'
+        run: |
+          pip install -e ".[dev]" build
+          pytest -q
+          python -m build
+
+      - name: Publish
+        if: steps.version.outputs.publish == 'true'
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: python/dist/
+          skip-existing: true
+
+      - name: Tag and release
+        if: steps.version.outputs.publish == 'true'
+        working-directory: ${{ github.workspace }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="py-v${{ steps.version.outputs.version }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag "$TAG"
+          git push origin "$TAG"
+          ARGS=(--generate-notes)
+          PREV=$(git tag -l 'py-v*' --sort=-v:refname | sed -n 2p)
+          if [ -n "$PREV" ]; then ARGS+=(--notes-start-tag "$PREV"); fi
+          gh release create "$TAG" \
+            --title "mnfst-autofix ${{ steps.version.outputs.version }}" \
+            "${ARGS[@]}"
