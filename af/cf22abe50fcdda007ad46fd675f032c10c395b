@@ -1,0 +1,21 @@
+.gitignore
+  s_c67ad0566d2280::t_16059b512a2470 1-19
+.pre-commit-config.yaml
+  s_c67ad0566d2280::t_0d96afead84495 1-42
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "afcf22abe50fcdda007ad46fd675f032c10c395b",
+  "prompts": {},
+  "sessions": {
+    "s_c67ad0566d2280": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a03087-0a72-7280-85a4-369daf347cdb",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
