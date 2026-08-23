@@ -40,6 +40,7 @@ err400 = (400, ERR_400)
 @pytest.fixture(autouse=True)
 def heal_env(monkeypatch):
     monkeypatch.setenv("AUTOFIX_URL", HEAL_URL)
+    monkeypatch.delenv("AUTOFIX_API_KEY", raising=False)
 
 
 class ExplodingStream(httpx.SyncByteStream):
@@ -365,7 +366,8 @@ def test_no_autofix_url_uses_the_hosted_endpoint(monkeypatch):
     provider = ProviderStub([err400])
     heal = HealStub(lambda body: httpx.Response(200, json=no_patch))
     post_chat(make_client(provider, heal))
-    assert heal.calls[0]["url"] == "https://autofix.manifest.build/api/heal"
+    assert heal.calls[0]["url"] == \
+        "https://phoenix-yc-production.up.railway.app/api/heal"
 
 
 def test_async_success_and_non_healable_statuses_pass_through():

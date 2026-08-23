@@ -50,5 +50,7 @@ That's a real trust relationship. If you'd rather not have it:
 
 - Don't pass `autofix()` to the client. Nothing is wrapped, nothing is sent.
 - `AUTOFIX_URL` points the client at a heal API you run.
+- `AUTOFIX_API_KEY` is sent only to that heal API as a bearer token. It is never
+  copied onto the provider request.
 - `AUTOFIX_DEBUG=1` prints each payload to stderr before it leaves, so you can
   see for yourself rather than take our word for it.

@@ -2,6 +2,11 @@
 
 Heal your failed LLM requests on-the-fly to avoid any downtime. Malformed parameters and model deprecations.
 
+The hosted demo uses `https://phoenix-yc-production.up.railway.app`. Set
+`AUTOFIX_API_KEY` in your application environment (or `.env` when your runtime
+loads it) to send `Authorization: Bearer <key>` to the heal API. `AUTOFIX_URL`
+still overrides the hosted endpoint.
+
 ![How autofix repairs a failing LLM request: a request reaches the provider; on a 400 (e.g. temperature out of range), the request drops to a patch, is repaired, retried, and succeeds with a 200 OK](docs/autofix-diagram.svg)
 
 ## Installation

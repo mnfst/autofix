@@ -53,7 +53,7 @@ beforeEach(() => {
   }), { status: 200 });
   globalThis.fetch = (async (input: never, init?: RequestInit) => {
     const url = String(input);
-    if (url.startsWith(HEAL_URL) || url.includes('autofix.manifest.build')) {
+    if (url.startsWith(HEAL_URL) || url.includes('phoenix-yc-production.up.railway.app')) {
       const body = init?.body ? JSON.parse(init.body as string) : undefined;
       healCalls.push({
         url, method: init?.method ?? 'GET', body,
@@ -67,6 +67,7 @@ beforeEach(() => {
 afterEach(() => {
   globalThis.fetch = realFetch;
   delete process.env.AUTOFIX_URL;
+  delete process.env.AUTOFIX_API_KEY;
   delete process.env.AUTOFIX_DEBUG;
 });
 
@@ -154,6 +155,8 @@ test('heals: strips content, sends derived identity, merges, replays, reports ou
 
   // Both heal calls carry the SDK's User-Agent — which SDK reported.
   assert.equal(healCalls[0]!.headers['user-agent'], `autofix-node/${VERSION}`);
+  assert.equal(healCalls[0]!.headers.authorization, undefined,
+    'provider authorization never reaches the heal API');
   assert.equal(patch!.headers['user-agent'], `autofix-node/${VERSION}`);
 
   assert.equal(events.length, 1);
@@ -239,7 +242,19 @@ test('no AUTOFIX_URL → the hosted heal endpoint is used', async () => {
   const provider = providerStub([err400]);
   const fx = autofix({ fetch: provider.fn });
   await fx(OPENAI, reqInit(chatBody));
-  assert.equal(healCalls[0]!.url, 'https://autofix.manifest.build/api/heal');
+  assert.equal(healCalls[0]!.url,
+    'https://phoenix-yc-production.up.railway.app/api/heal');
+});
+
+test('AUTOFIX_API_KEY authenticates the heal and outcome calls', async () => {
+  process.env.AUTOFIX_API_KEY = 'demo-secret';
+  const provider = providerStub([err400, ok200]);
+  const fx = autofix({ fetch: provider.fn });
+  await fx(OPENAI, reqInit(chatBody));
+
+  await new Promise((r) => setTimeout(r, 20));
+  assert.deepEqual(healCalls.map((call) => call.headers.authorization),
+    ['Bearer demo-secret', 'Bearer demo-secret']);
 });
 
 // The shape of the structured output is a setting and heals like one; the

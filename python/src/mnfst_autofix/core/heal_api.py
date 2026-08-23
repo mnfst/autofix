@@ -1,4 +1,4 @@
-"""The heal API client - the only code here that talks to autofix.manifest.build.
+"""The heal API client - the only code here that talks to the hosted Phoenix app.
 Every call is budgeted, and the outcome report is fire-and-forget: neither can
 turn into an error the calling app has to handle.
 
@@ -21,7 +21,7 @@ import httpx
 
 from .. import __version__
 
-HOSTED_HEAL_URL = "https://autofix.manifest.build"
+HOSTED_HEAL_URL = "https://phoenix-yc-production.up.railway.app"
 # The user-agent identifies the reporting engine; x-autofix-source (per
 # instance, below) is which SDK the app wrapped. Both client-claimed, analytics
 # only; the trust-bearing `source` is stamped server-side from auth. Joined
@@ -71,6 +71,9 @@ class _HealApiBase:
         # the header"; the user-agent already carries autofix-python/<version>,
         # so that split survives the omission. Do not re-add it.
         self.headers = dict(HEADERS)
+        api_key = os.environ.get("AUTOFIX_API_KEY")
+        if api_key:
+            self.headers["authorization"] = f"Bearer {api_key}"
         if source in _HEADER_SOURCES:
             self.headers["x-autofix-source"] = source
 
