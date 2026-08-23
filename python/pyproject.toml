@@ -1,0 +1,42 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mnfst-autofix"
+version = "0.1.0"
+description = "Self-healing HTTP transport for LLM SDKs - the OpenAI and Anthropic Python SDKs. Fixes request-side failures at runtime (renamed params, restricted values, retired models) and retries. Anonymized: your prompts never travel in the request."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.9"
+authors = [{ name = "Manifest" }]
+keywords = ["openai", "anthropic", "llm", "reliability", "self-healing", "httpx", "retry", "autofix"]
+dependencies = ["httpx>=0.24"]
+
+[project.urls]
+Homepage = "https://github.com/mnfst/autofix#readme"
+Repository = "https://github.com/mnfst/autofix"
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "ruff>=0.6", "pytest-cov>=4", "openai>=1.40", "anthropic>=0.25"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mnfst_autofix"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+# No pyupgrade (UP): it rewrites Optional[X] to X | None, which is only safe
+# here because of `from __future__ import annotations`, and stops being safe the
+# moment anything calls get_type_hints() on the public HealEvent dataclass.
+# 3.9 is the floor.
+select = ["E", "F", "W", "I", "B"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["E501"]
