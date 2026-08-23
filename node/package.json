@@ -1,0 +1,66 @@
+{
+  "name": "@mnfst/autofix",
+  "version": "0.1.0",
+  "description": "Self-healing fetch() for LLM SDKs — OpenAI SDK, Anthropic SDK, and the Vercel AI SDK. Fixes request-side failures at runtime (renamed params, restricted values, retired models) and retries. Anonymized: your prompts never travel in the request.",
+  "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mnfst/autofix.git",
+    "directory": "node"
+  },
+  "homepage": "https://github.com/mnfst/autofix#readme",
+  "keywords": [
+    "openai",
+    "anthropic",
+    "vercel",
+    "ai-sdk",
+    "llm",
+    "reliability",
+    "self-healing",
+    "fetch",
+    "retry",
+    "autofix"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "demo": "tsx --env-file-if-exists=.env examples/demo.ts",
+    "demo:ai": "tsx --env-file-if-exists=.env examples/ai-demo.ts",
+    "demo:anthropic": "tsx --env-file-if-exists=.env examples/anthropic-demo.ts",
+    "lint": "eslint .",
+    "prepublishOnly": "npm test && npm run build",
+    "test": "tsx --test tests/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "test:package": "npm run build && node scripts/package-smoke.mjs",
+    "test:coverage": "tsx --test --experimental-test-coverage --test-coverage-exclude='tests/**' --test-coverage-lines=100 --test-coverage-functions=100 --test-coverage-branches=95 tests/*.test.ts"
+  },
+  "engines": {
+    "node": ">=18.17"
+  },
+  "devDependencies": {
+    "@ai-sdk/anthropic": "^4.0.33",
+    "@ai-sdk/openai": "^4.0.32",
+    "@anthropic-ai/sdk": "^0.115.0",
+    "@eslint/js": "^9.0.0",
+    "@types/node": "^22.0.0",
+    "ai": "^7.0.55",
+    "eslint": "^9.0.0",
+    "globals": "^15.0.0",
+    "openai": "^4.104.0",
+    "tsup": "^8.5.1",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.0",
+    "typescript-eslint": "^8.0.0"
+  }
+}
