@@ -1,0 +1,42 @@
+# Install once:  pip install pre-commit && pre-commit install
+# The Node hooks shell out to the local checkout, so run `npm ci` in node/ first.
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-toml
+      - id: check-merge-conflict
+      - id: detect-private-key
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.16.1
+    hooks:
+      - id: ruff-check
+        args: [--fix]
+        files: ^python/
+
+  - repo: local
+    hooks:
+      - id: eslint
+        name: eslint
+        entry: npm --prefix node run lint
+        language: system
+        files: ^node/.*\.ts$
+        pass_filenames: false
+
+      - id: node-tests
+        name: node tests
+        entry: npm --prefix node test
+        language: system
+        files: ^node/
+        pass_filenames: false
+
+      - id: pytest
+        name: pytest
+        entry: bash -c 'cd python && pytest -q'
+        language: system
+        files: ^python/
+        pass_filenames: false
