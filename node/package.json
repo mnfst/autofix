@@ -6,10 +6,10 @@
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mnfst/autofix.git",
+    "url": "git+https://github.com/mnfst/autofix-standalone.git",
     "directory": "node"
   },
-  "homepage": "https://github.com/mnfst/autofix#readme",
+  "homepage": "https://github.com/mnfst/autofix-standalone#readme",
   "keywords": [
     "openai",
     "anthropic",

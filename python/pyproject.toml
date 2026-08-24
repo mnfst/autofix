@@ -14,8 +14,8 @@ keywords = ["openai", "anthropic", "llm", "reliability", "self-healing", "httpx"
 dependencies = ["httpx>=0.24"]
 
 [project.urls]
-Homepage = "https://github.com/mnfst/autofix#readme"
-Repository = "https://github.com/mnfst/autofix"
+Homepage = "https://github.com/mnfst/autofix-standalone#readme"
+Repository = "https://github.com/mnfst/autofix-standalone"
 
 [project.optional-dependencies]
 dev = ["pytest>=7", "ruff>=0.6", "pytest-cov>=4", "openai>=1.40", "anthropic>=0.25"]
