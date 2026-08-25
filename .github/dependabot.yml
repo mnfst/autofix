@@ -11,6 +11,11 @@ updates:
     groups:
       node-dev:
         patterns: ['*']
+    ignore:
+      # typescript-eslint's peer range caps at typescript <6.1.0; TS 6/7
+      # bumps break npm install until it catches up. Bump manually then.
+      - dependency-name: typescript
+        update-types: ['version-update:semver-major']
 
   - package-ecosystem: pip
     directory: /python
