@@ -16,6 +16,11 @@ updates:
       # bumps break npm install until it catches up. Bump manually then.
       - dependency-name: typescript
         update-types: ['version-update:semver-major']
+      # tsx 4.23.9 regressed sourcemaps under --experimental-test-coverage:
+      # import lines count as uncovered and the 100% gate fails. Known-bad
+      # versions only; let 4.23.13+ through so a fixed release can land.
+      - dependency-name: tsx
+        versions: ['>=4.23.9 <=4.23.12']
 
   - package-ecosystem: pip
     directory: /python
