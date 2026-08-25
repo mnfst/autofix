@@ -1,5 +1,8 @@
 # autofix
 
+[![CI](https://github.com/mnfst/autofix/actions/workflows/ci.yml/badge.svg)](https://github.com/mnfst/autofix/actions/workflows/ci.yml)
+[![npm downloads](https://img.shields.io/npm/dm/%40mnfst%2Fautofix)](https://www.npmjs.com/package/@mnfst/autofix)
+
 Heal your failed LLM requests on-the-fly to avoid any downtime. Malformed parameters and model deprecations.
 
 The hosted demo uses `https://phoenix-yc-production.up.railway.app`. Set
