@@ -1,6 +1,6 @@
 {
   "name": "@mnfst/autofix",
-  "version": "0.1.0",
+  "version": "0.3.1",
   "description": "Self-healing fetch() for LLM SDKs — OpenAI SDK, Anthropic SDK, and the Vercel AI SDK. Fixes request-side failures at runtime (renamed params, restricted values, retired models) and retries. Anonymized: your prompts never travel in the request.",
   "license": "MIT",
   "type": "module",
