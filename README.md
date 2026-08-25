@@ -2,6 +2,7 @@
 
 [![CI](https://github.com/mnfst/autofix/actions/workflows/ci.yml/badge.svg)](https://github.com/mnfst/autofix/actions/workflows/ci.yml)
 [![npm downloads](https://img.shields.io/npm/dm/%40mnfst%2Fautofix)](https://www.npmjs.com/package/@mnfst/autofix)
+[![PyPI downloads](https://img.shields.io/pypi/dm/mnfst-autofix)](https://pypi.org/project/mnfst-autofix/)
 
 Heal your failed LLM requests on-the-fly to avoid any downtime. Malformed parameters and model deprecations.
 
