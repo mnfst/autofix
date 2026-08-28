@@ -1,4 +1,4 @@
-// The heal API client — the only code here that talks to the hosted Phoenix app.
+// The heal API client — the only code here that talks to autofix.manifest.build.
 // Every call is budgeted, and the outcome report is fire-and-forget: neither
 // can turn into an error the calling app has to handle.
 
@@ -26,7 +26,7 @@ export interface HealApi {
                 failed?: Response): void;
 }
 
-const HOSTED_HEAL_URL = 'https://phoenix-yc-production.up.railway.app';
+const HOSTED_HEAL_URL = 'https://autofix.manifest.build';
 // user-agent identifies the reporting engine; x-autofix-source is which SDK
 // the app wrapped. Both client-claimed, analytics only; the trust-bearing
 // `source` is stamped server-side from auth. Joined server-side they give
@@ -41,14 +41,8 @@ const HEADERS = {
 // client that classified nothing" from "client older than the header"; the
 // user-agent already carries autofix-node/<version>, so that split survives the
 // omission. Do not re-add it.
-const headersFor = (source: SdkSource): Record<string, string> => {
-  const apiKey = process.env.AUTOFIX_API_KEY;
-  return {
-    ...HEADERS,
-    ...(apiKey ? { authorization: `Bearer ${apiKey}` } : {}),
-    ...(source === 'unknown' ? {} : { 'x-autofix-source': source }),
-  };
-};
+const headersFor = (source: SdkSource): Record<string, string> =>
+  source === 'unknown' ? { ...HEADERS } : { ...HEADERS, 'x-autofix-source': source };
 
 /**
  * Workspace identity, derived — never persisted, nothing written anywhere.

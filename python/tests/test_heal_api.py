@@ -42,7 +42,6 @@ DEFAULT_HEAL = {
 @pytest.fixture(autouse=True)
 def heal_env(monkeypatch):
     monkeypatch.setenv("AUTOFIX_URL", HEAL_URL)
-    monkeypatch.delenv("AUTOFIX_API_KEY", raising=False)
 
 
 class ProviderStub:
@@ -369,12 +368,6 @@ def test_source_header_travels_on_heal_post_and_outcome_patch(source):
     for call in _heal_calls_for(source):
         assert call["headers"]["x-autofix-source"] == source, call["method"]
         assert call["headers"]["user-agent"].startswith("autofix-python/"), call["method"]
-
-
-def test_api_key_authenticates_the_heal_and_outcome_calls(monkeypatch):
-    monkeypatch.setenv("AUTOFIX_API_KEY", "demo-secret")
-    for call in _heal_calls_for("openai-sdk"):
-        assert call["headers"]["authorization"] == "Bearer demo-secret", call["method"]
 
 
 def test_neither_heal_call_carries_a_source_it_could_not_declare():

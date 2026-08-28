@@ -11,11 +11,6 @@ Use one import per SDK. Routing follows the request path, including custom
 npm install @mnfst/autofix
 ```
 
-The hosted demo uses `https://phoenix-yc-production.up.railway.app`. Set
-`AUTOFIX_API_KEY` in your application environment (or `.env` when your runtime
-loads it) to authenticate heal requests. Use `AUTOFIX_URL` to override the
-endpoint.
-
 ## Usage
 
 ```ts

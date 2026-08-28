@@ -52,7 +52,7 @@ beforeEach(() => {
   }), { status: 200 });
   globalThis.fetch = (async (input: never, init?: RequestInit) => {
     const url = String(input);
-    if (url.startsWith(HEAL_URL) || url.includes('phoenix-yc-production.up.railway.app')) {
+    if (url.startsWith(HEAL_URL) || url.includes('autofix.manifest.build')) {
       const body = init?.body ? JSON.parse(init.body as string) : undefined;
       healCalls.push({ url, method: init?.method ?? 'GET', body });
       return healResponder(body, init);

@@ -11,7 +11,7 @@ const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY, // unchanged — the SDK's auth stays the SDK's
   maxRetries: 0,                      // demo clarity: no SDK-level retries in the way
   fetch: autofix({
-    // heal API: AUTOFIX_URL env if set, hosted Phoenix demo otherwise
+    // heal API: AUTOFIX_URL env if set, hosted autofix.manifest.build otherwise
     onHeal: (e) => {
       events.push(e);
       console.log(`   [autofix] ${e.healStatus}${e.summary ? ` — ${e.summary}` : ''}${
