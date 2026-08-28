@@ -1,0 +1,21 @@
+python/pyproject.toml
+  s_44df195c908854::t_077922cf54de92 7
+python/src/mnfst_autofix/__init__.py
+  s_44df195c908854::t_077922cf54de92 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "63a3cd8a29307dfd36b7a18c7652b50f807fa56f",
+  "prompts": {},
+  "sessions": {
+    "s_44df195c908854": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0475f-ce21-7c00-883b-996d4d7d09ad",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
