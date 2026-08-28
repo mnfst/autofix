@@ -1,0 +1,49 @@
+node/LICENSE
+  s_c67ad0566d2280::t_f2ada5e9b4ccad 1-21
+node/eslint.config.js
+  s_c67ad0566d2280::t_56bc0f1e84f085 1-32
+node/package-lock.json
+  s_c67ad0566d2280::t_40807deefdeca9 1-4116
+node/package.json
+  s_c67ad0566d2280::t_eef15694315c78 1-66
+node/src/anthropic/messages.ts
+  s_c67ad0566d2280::t_b8afdef32e979b 1-19
+node/src/core/anonymize.ts
+  s_c67ad0566d2280::t_39a82406d73511 1-141
+node/src/core/engine.ts
+  s_c67ad0566d2280::t_316bac356aafed 1-220
+node/src/core/gate.ts
+  s_c67ad0566d2280::t_2d62f785401f5e 1-208
+node/src/core/heal-api.ts
+  s_c67ad0566d2280::t_8843a84319dd68 1-110
+node/src/core/source.ts
+  s_c67ad0566d2280::t_2bb83820db0a9f 1-33
+node/src/core/version.ts
+  s_c67ad0566d2280::t_c74246f8cc4186 1-4
+node/src/index.ts
+  s_c67ad0566d2280::t_8dc3ac2a76fe7e 1-26
+node/src/openai/chat.ts
+  s_c67ad0566d2280::t_37a41821204441 1-15
+node/src/openai/responses.ts
+  s_c67ad0566d2280::t_b212ef90eef185 1-16
+node/tsconfig.json
+  s_c67ad0566d2280::t_f0e8e2b307ccc5 1-14
+node/tsup.config.ts
+  s_c67ad0566d2280::t_332b6dbce37253 1-11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "3bc3c5fe1a9cd6ea01fd57499d45096de0934639",
+  "prompts": {},
+  "sessions": {
+    "s_c67ad0566d2280": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a03087-0a72-7280-85a4-369daf347cdb",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

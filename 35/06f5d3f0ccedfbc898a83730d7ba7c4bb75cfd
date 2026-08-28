@@ -1,0 +1,21 @@
+.github/dependabot.yml
+  s_c67ad0566d2280::t_b0151ba2cfe607 1-29
+.github/workflows/ci.yml
+  s_c67ad0566d2280::t_f4fd6eeaaedccb 1-99
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "3506f5d3f0ccedfbc898a83730d7ba7c4bb75cfd",
+  "prompts": {},
+  "sessions": {
+    "s_c67ad0566d2280": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a03087-0a72-7280-85a4-369daf347cdb",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

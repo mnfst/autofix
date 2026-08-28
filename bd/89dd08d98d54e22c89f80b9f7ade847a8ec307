@@ -1,0 +1,39 @@
+node/scripts/package-smoke.mjs
+  s_c67ad0566d2280::t_196f67fa78cb2b 1-52
+node/tests/anonymize.test.ts
+  s_c67ad0566d2280::t_07299d5069eca3 1-77
+node/tests/anthropic.test.ts
+  s_c67ad0566d2280::t_1f0a2fe5eae819 1-296
+node/tests/index.test.ts
+  s_c67ad0566d2280::t_cbe4e0f66468f6 1-218
+node/tests/package-smoke/package.json
+  s_c67ad0566d2280::t_0c7d93253801bd 1-4
+node/tests/package-smoke/runtime.mjs
+  s_c67ad0566d2280::t_bad4f160fedba8 1-5
+node/tests/package-smoke/types.ts
+  s_c67ad0566d2280::t_d92dc57d566e55 1-4
+node/tests/source.test.ts
+  s_c67ad0566d2280::t_7e0cac199d3ec5 1-196
+node/tests/version.test.ts
+  s_c67ad0566d2280::t_c5dc398cbf45a7 1-20
+node/tests/wrapper.test.ts
+  s_c67ad0566d2280::t_831d2624524591 1-728
+tests/anonymize-cases.json
+  s_c67ad0566d2280::t_6545f30a71a6b0 1-425
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "bd89dd08d98d54e22c89f80b9f7ade847a8ec307",
+  "prompts": {},
+  "sessions": {
+    "s_c67ad0566d2280": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a03087-0a72-7280-85a4-369daf347cdb",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

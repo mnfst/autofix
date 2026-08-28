@@ -1,0 +1,45 @@
+python/LICENSE
+  s_c67ad0566d2280::t_bbade4744d66a2 1-21
+python/pyproject.toml
+  s_c67ad0566d2280::t_609fd50091b767 1-42
+python/src/mnfst_autofix/__init__.py
+  s_c67ad0566d2280::t_5cc69251b73a14 1-8
+python/src/mnfst_autofix/anthropic/__init__.py
+  s_c67ad0566d2280::t_b858c558c38e5d 1-58
+python/src/mnfst_autofix/anthropic/messages.py
+  s_c67ad0566d2280::t_cd2365c160de66 1-8
+python/src/mnfst_autofix/core/__init__.py
+  s_c67ad0566d2280::t_1a850a31e675d6 1
+python/src/mnfst_autofix/core/anonymize.py
+  s_c67ad0566d2280::t_0de2a3d9c0f0c6 1-130
+python/src/mnfst_autofix/core/attempt.py
+  s_c67ad0566d2280::t_7794ba17c018e8 1-207
+python/src/mnfst_autofix/core/engine.py
+  s_c67ad0566d2280::t_411fdcbf85d891 1-188
+python/src/mnfst_autofix/core/gate.py
+  s_c67ad0566d2280::t_8f3ef9f8a5b463 1-114
+python/src/mnfst_autofix/core/heal_api.py
+  s_c67ad0566d2280::t_151598d261f055 1-192
+python/src/mnfst_autofix/openai/__init__.py
+  s_c67ad0566d2280::t_eaf1062757f02a 1-56
+python/src/mnfst_autofix/openai/chat.py
+  s_c67ad0566d2280::t_646d6a3debebc5 1-7
+python/src/mnfst_autofix/openai/responses.py
+  s_c67ad0566d2280::t_395b09705c309a 1-8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "52624330add0983b63302a954eaf6a624a2cfde9",
+  "prompts": {},
+  "sessions": {
+    "s_c67ad0566d2280": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a03087-0a72-7280-85a4-369daf347cdb",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

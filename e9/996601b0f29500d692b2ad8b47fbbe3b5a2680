@@ -1,0 +1,23 @@
+.github/ISSUE_TEMPLATE/config.yml
+  s_4b13d02526edcd::t_1454607311c220 4
+node/package.json
+  s_4b13d02526edcd::t_1454607311c220 9,12
+python/pyproject.toml
+  s_4b13d02526edcd::t_1454607311c220 17-18
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "e9996601b0f29500d692b2ad8b47fbbe3b5a2680",
+  "prompts": {},
+  "sessions": {
+    "s_4b13d02526edcd": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a03600-f06e-7d91-ae98-7cd15653803a",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

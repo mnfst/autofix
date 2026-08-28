@@ -1,0 +1,49 @@
+.github/ISSUE_TEMPLATE/bug_report.yml
+  s_c67ad0566d2280::t_8aa5bd2c9ccf40 1-38
+.github/ISSUE_TEMPLATE/config.yml
+  s_c67ad0566d2280::t_206c9c27d75caf 1-5
+.github/ISSUE_TEMPLATE/feature_request.yml
+  s_c67ad0566d2280::t_bbd3d4f0476b77 1-25
+.github/PULL_REQUEST_TEMPLATE.md
+  s_c67ad0566d2280::t_875d4d7a75e30f 1-10
+CODE_OF_CONDUCT.md
+  s_c67ad0566d2280::t_29bcd40191e7b6 1-14
+CONTRIBUTING.md
+  s_c67ad0566d2280::t_0902d227df2587 1-100
+README.md
+  s_c67ad0566d2280::t_51b329396ff507 1-181
+SECURITY.md
+  s_c67ad0566d2280::t_e5e1661fc118e5 1-54
+docs/autofix-diagram.svg
+  s_c67ad0566d2280::t_25112d2335004b 1-347
+node/README.md
+  s_c67ad0566d2280::t_c1a5332e3bc6ae 1-111
+node/examples/ai-demo.ts
+  s_c67ad0566d2280::t_27c9d3cb4ca634 1-101
+node/examples/anthropic-demo.ts
+  s_c67ad0566d2280::t_6965d9e5e2c457 1-43
+node/examples/demo.ts
+  s_c67ad0566d2280::t_092e2aeb0da91d 1-77
+python/README.md
+  s_c67ad0566d2280::t_04273b0a14e93e 1-106
+python/examples/anthropic_try.py
+  s_c67ad0566d2280::t_4b8ac92027a6a5 1-18
+python/examples/try.py
+  s_c67ad0566d2280::t_a4f790cac9b2db 1-16
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "48dfc794cc99fb889e407224acb1adfd61b14a2e",
+  "prompts": {},
+  "sessions": {
+    "s_c67ad0566d2280": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a03087-0a72-7280-85a4-369daf347cdb",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
