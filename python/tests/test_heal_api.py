@@ -368,6 +368,7 @@ def test_source_header_travels_on_heal_post_and_outcome_patch(source):
     for call in _heal_calls_for(source):
         assert call["headers"]["x-autofix-source"] == source, call["method"]
         assert call["headers"]["user-agent"].startswith("autofix-python/"), call["method"]
+        assert "authorization" not in call["headers"], call["method"]
 
 
 def test_neither_heal_call_carries_a_source_it_could_not_declare():

@@ -157,6 +157,8 @@ test('heals: strips content, sends derived identity, merges, replays, reports ou
   assert.equal(healCalls[0]!.headers.authorization, undefined,
     'provider authorization never reaches the heal API');
   assert.equal(patch!.headers['user-agent'], `autofix-node/${VERSION}`);
+  assert.equal(patch!.headers.authorization, undefined,
+    'the outcome report needs no heal API authorization');
 
   assert.equal(events.length, 1);
   assert.equal(events[0]!.healStatus, 'unverified');
