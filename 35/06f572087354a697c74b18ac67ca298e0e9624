@@ -1,0 +1,31 @@
+node/package.json
+  s_44df195c908854::t_077922cf54de92 3
+node/src/core/version.ts
+  s_44df195c908854::t_077922cf54de92 4
+node/package-lock.json
+  s_7520e67d7a89a9::t_2e268cb78f1b58 3,9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "3506f572087354a697c74b18ac67ca298e0e9624",
+  "prompts": {},
+  "sessions": {
+    "s_44df195c908854": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0475f-ce21-7c00-883b-996d4d7d09ad",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    },
+    "s_7520e67d7a89a9": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0473e-14b1-7670-a889-48216aa8f5b4",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
