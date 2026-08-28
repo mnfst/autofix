@@ -1,0 +1,21 @@
+node/tests/wrapper.test.ts
+  s_44df195c908854::t_47153d519d5681 160-161
+python/tests/test_heal_api.py
+  s_44df195c908854::t_47153d519d5681 371
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "7c7d3a3c906f811c9a6fb836271f060a271b24b8",
+  "prompts": {},
+  "sessions": {
+    "s_44df195c908854": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0475f-ce21-7c00-883b-996d4d7d09ad",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
