@@ -1,0 +1,29 @@
+node/tests/anthropic.test.ts
+  s_44df195c908854::t_5be35433f3015c 55
+node/src/core/heal-api.ts
+  s_44df195c908854::t_5be35433f3015c 1,29,44-45
+node/examples/demo.ts
+  s_44df195c908854::t_5be35433f3015c 14
+node/tests/wrapper.test.ts
+  s_44df195c908854::t_5be35433f3015c 56,245
+python/tests/test_wrapper.py
+  s_44df195c908854::t_5be35433f3015c 369
+python/src/mnfst_autofix/core/heal_api.py
+  s_44df195c908854::t_5be35433f3015c 1,24
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "99b3f3fdf32815f72bbcc1200d2bc96e6295e6b6",
+  "prompts": {},
+  "sessions": {
+    "s_44df195c908854": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0475f-ce21-7c00-883b-996d4d7d09ad",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
