@@ -1,0 +1,21 @@
+python/src/mnfst_autofix/fastapi/candidates.py
+  s_272f1586921530::t_1a2908b7101d0c 139-150,166
+python/tests/test_fastapi_candidates.py
+  s_272f1586921530::t_ccbb79f4e0dcf9 93-104
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "506469ea8fdb87461c182077208fbbf6253d6789",
+  "prompts": {},
+  "sessions": {
+    "s_272f1586921530": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0cc8befe-a944-43e6-a942-9f7ee9fd33a4",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
