@@ -1,0 +1,25 @@
+python/tests/test_fastapi_middleware.py
+  s_272f1586921530::t_62f98738b1fa2f 1-128
+python/src/mnfst_autofix/fastapi/__init__.py
+  s_272f1586921530::t_665da6f088c653 1-35
+python/src/mnfst_autofix/fastapi/middleware.py
+  s_272f1586921530::t_d7b5be9a546495 1-20,23-52,57-59,61-64,66,78-93,95-99,101-102,104-117,119-122,128-133,136-167,172,179,184,188,213,217-279
+  s_272f1586921530::t_af4f9bd213644c 67-69
+  s_272f1586921530::t_1dfa8963dedb00 21-22,53-56,60,65,70-77,94,100,103,118,123-127,134-135,168-171,173-178,180-183,185-187,189-212,214-216
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "7e89acb81094f62fe4e72cd9de6474a050399861",
+  "prompts": {},
+  "sessions": {
+    "s_272f1586921530": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0cc8befe-a944-43e6-a942-9f7ee9fd33a4",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
