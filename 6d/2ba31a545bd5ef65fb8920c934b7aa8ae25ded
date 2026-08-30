@@ -1,0 +1,26 @@
+python/tests/test_rest_shape.py
+  s_272f1586921530::t_06cfe0aa0bc054 30-51,56-61
+  s_272f1586921530::t_c14ef339caf880 62-63
+python/src/mnfst_autofix/rest/shape.py
+  s_272f1586921530::t_e841c049a541e8 51-52,57-61
+  s_272f1586921530::t_63872dbf46e4f7 8-10
+  s_272f1586921530::t_6e6402f0b52fd4 69-70
+  s_272f1586921530::t_bf2b686a5c9239 20-22
+  s_272f1586921530::t_070af9e4f45015 62-63
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "6d2ba31a545bd5ef65fb8920c934b7aa8ae25ded",
+  "prompts": {},
+  "sessions": {
+    "s_272f1586921530": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0cc8befe-a944-43e6-a942-9f7ee9fd33a4",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
