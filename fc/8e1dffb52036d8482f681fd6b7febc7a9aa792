@@ -1,0 +1,21 @@
+python/tests/test_ops.py
+  s_272f1586921530::t_c9d1a5f1bce7d9 1-54
+python/src/mnfst_autofix/core/ops.py
+  s_272f1586921530::t_3d725178390c0d 1-82
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "fc8e1dffb52036d8482f681fd6b7febc7a9aa792",
+  "prompts": {},
+  "sessions": {
+    "s_272f1586921530": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0cc8befe-a944-43e6-a942-9f7ee9fd33a4",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
