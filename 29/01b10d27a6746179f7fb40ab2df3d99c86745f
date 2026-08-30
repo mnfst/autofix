@@ -1,0 +1,23 @@
+python/tests/test_attempt_hooks.py
+  s_272f1586921530::t_fa584cc3dfe1d7 1-69
+python/src/mnfst_autofix/core/attempt.py
+  s_272f1586921530::t_5e46ea8d138079 114,120-122,129-131
+  s_272f1586921530::t_3242faaaaa32cb 145-160,162
+  s_272f1586921530::t_cf06b013aaec3f 182-185
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "2901b10d27a6746179f7fb40ab2df3d99c86745f",
+  "prompts": {},
+  "sessions": {
+    "s_272f1586921530": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0cc8befe-a944-43e6-a942-9f7ee9fd33a4",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
