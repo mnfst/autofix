@@ -1,0 +1,24 @@
+python/tests/test_gate_hooks.py
+  s_272f1586921530::t_79543744ee3e67 1-51
+python/src/mnfst_autofix/core/gate.py
+  s_272f1586921530::t_c6ae43ff3ac1d0 119,122-124
+  s_272f1586921530::t_cd05a278afe209 101-105
+  s_272f1586921530::t_35081b606c6282 134-137
+  s_272f1586921530::t_15c328ed3b8451 26-34,40-45
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "362e5ccba371112baf2fad5398419a24f1898982",
+  "prompts": {},
+  "sessions": {
+    "s_272f1586921530": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0cc8befe-a944-43e6-a942-9f7ee9fd33a4",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
