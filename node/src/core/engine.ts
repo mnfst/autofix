@@ -8,7 +8,7 @@
 //
 // Everything provider-specific lives in an Adapter: which paths this wrapper
 // is allowed to touch, and what identifies a body as that dialect's. See
-// src/openai/ and src/anthropic/. The decision of what may be touched is in
+// src/openai/, src/anthropic/ and src/google/. The decision of what may be touched is in
 // core/gate.ts; what may travel is in core/anonymize.ts; talking to the heal
 // service is core/heal-api.ts.
 
@@ -19,14 +19,14 @@ import { healApi, type HealApi, type HealResult } from './heal-api.ts';
 import type { SdkSource } from './source.ts';
 
 export { routeTable } from './gate.ts';
-export type { Dialect, Route } from './gate.ts';
+export type { Dialect, ReplayRequest, Route } from './gate.ts';
 
 export interface AutofixOptions {
   onHeal?: (e: HealEvent) => void;     // observability hook — the only way to see what happened
   fetch?: typeof globalThis.fetch;     // inner transport (default: global fetch)
   healTimeoutMs?: number;              // budget for each heal-API call, including
                                        // the outcome report (default 5000)
-  sendMessages?: boolean;              // send the messages array to the heal API
+  sendMessages?: boolean;              // send messages / Gemini contents to the heal API
                                        // (default false — see core/anonymize.ts)
 }
 
@@ -176,6 +176,8 @@ function servedBody(heal: HealResult): Record<string, unknown> | null {
 }
 
 function healPayload(attempt: Attempt, gate: Healable, traceId: string) {
+  const nativeRequest = stripRequest(gate.request, { sendMessages: attempt.sendMessages });
+  const request = gate.route.model ? { model: gate.route.model, ...nativeRequest } : nativeRequest;
   return {
     traceId,
     tenantId: attempt.api.tenantId,
@@ -184,12 +186,28 @@ function healPayload(attempt: Attempt, gate: Healable, traceId: string) {
     url: gate.url,
     // ANONYMIZED: the settings leave, the structure and the content stay —
     // unless the caller opted the messages in.
-    request: stripRequest(gate.request, { sendMessages: attempt.sendMessages }),
+    request,
     response: {
       statusCode: attempt.original.status,
       error: gate.error,
     },
+    ...(gate.route.providerExchange
+      ? { providerExchange: providerExchange(gate, nativeRequest, attempt.original.status) }
+      : {}),
     responseTimeMs: attempt.providerMs,
+  };
+}
+
+function providerExchange(gate: Healable, body: Record<string, unknown>, statusCode: number) {
+  const exchange = gate.route.providerExchange!;
+  const redactedFields = exchange.redactedFields.filter(
+    (field) => Object.hasOwn(gate.request, field) && !Object.hasOwn(body, field),
+  );
+  return {
+    format: exchange.format,
+    url: gate.url,
+    request: { body, ...(redactedFields.length ? { redactedFields } : {}) },
+    response: { statusCode, body: { error: gate.error } },
   };
 }
 
@@ -212,11 +230,14 @@ function healPayload(attempt: Attempt, gate: Healable, traceId: string) {
 async function replayOnce(attempt: Attempt, gate: Healable,
                           healedBody: Record<string, unknown>): Promise<Replayed | null> {
   try {
-    const body = JSON.stringify(mergeHealedBody(gate.request, healedBody));
+    const merged = mergeHealedBody(gate.request, healedBody);
+    const transformed = gate.route.replay?.(gate.requestUrl, merged);
+    const body = JSON.stringify(transformed?.body ?? merged);
     const headers = new Headers(callerHeaders(attempt.input, attempt.init));
     headers.delete('content-length');
     const startedAt = Date.now();
-    const replay = await attempt.inner(attempt.input, { ...attempt.init, headers, body });
+    const replay = await attempt.inner(transformed?.url ?? attempt.input,
+      { ...attempt.init, headers, body });
     return { replay, replayMs: Date.now() - startedAt };
   } catch {
     return null;

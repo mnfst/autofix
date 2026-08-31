@@ -11,7 +11,7 @@ Heal your failed LLM requests on-the-fly to avoid any downtime. Malformed parame
 
 ### Node / TypeScript
 
-One package - compatible with every LLM SDK.
+One package for OpenAI, Anthropic, and native Google Gemini requests.
 
 ```bash
 npm install @mnfst/autofix
@@ -57,6 +57,18 @@ const message = await client.messages.create({
 });
 ```
 
+#### Vercel AI SDK - Google Gemini
+
+```ts
+import { createGoogleGenerativeAI } from '@ai-sdk/google';
+import { autofix } from '@mnfst/autofix';
+
+const google = createGoogleGenerativeAI({
+  apiKey: process.env.GOOGLE_GENERATIVE_AI_API_KEY,
+  fetch: autofix({ sendMessages: true }),
+});
+```
+
 Other providers like OpenRouter uses the OpenAI SDK with its own `baseURL`:
 
 ```ts
@@ -72,7 +84,7 @@ const client = new OpenAI({
 
 ### Python
 
-One package - compatible with every LLM SDK.
+One package for OpenAI, Anthropic, and native Google Gemini requests.
 
 ```bash
 pip install mnfst-autofix
@@ -161,10 +173,9 @@ schema bodies, identity fields, and credential fields stay local. The provider e
 endpoint origin and path, derived workspace id, and SDK source are also sent.
 
 `autofix({ sendMessages: true })` in Node / `autofix(send_messages=True)` in
-Python (default off) opts the top-level `messages` array in, verbatim — for
-teams pointing at their own heal service who want the conversation visible next
-to the failure it caused. It is observability only: the heal API still cannot
-author or rewrite a message on the way back.
+Python (default off) opts the top-level `messages` or Gemini `contents` array in,
+verbatim. It is observability only: the heal API still cannot author or rewrite
+the conversation on the way back.
 
 ## See heals
 
@@ -182,8 +193,8 @@ const client = new OpenAI({
 
 | Package | Language | SDKs |
 |---|---|---|
-| [`@mnfst/autofix`](node) | Node / TypeScript | OpenAI, Anthropic |
-| [`mnfst-autofix`](python) | Python | OpenAI, Anthropic |
+| [`@mnfst/autofix`](node) | Node / TypeScript | OpenAI, Anthropic, Google Gemini |
+| [`mnfst-autofix`](python) | Python | OpenAI, Anthropic, Google Gemini |
 
 ## License
 

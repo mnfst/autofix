@@ -1,6 +1,6 @@
 # Autofix Node
 
-Self-healing `fetch()` for LLM SDKs — the [OpenAI SDK](https://github.com/openai/openai-node) and the [Anthropic SDK](https://github.com/anthropics/anthropic-sdk-typescript). When a request fails with a fixable request-shape error — a renamed parameter, a restricted value, a retired model — autofix repairs it at runtime and retries. Your code doesn't change; your users never see the failure.
+Self-healing `fetch()` for OpenAI, Anthropic, and native Google Gemini requests. When a request fails with a fixable request-shape error — a renamed parameter, a restricted value, a retired model — autofix repairs it at runtime and retries. Your code doesn't change; your users never see the failure.
 
 ## Installation
 
@@ -46,6 +46,16 @@ const message = await client.messages.create({
   model: 'claude-sonnet-4-20250514',
   max_tokens: 256,
   messages: [{ role: 'user', content: 'Hello!' }],
+});
+```
+
+```ts
+import { createGoogleGenerativeAI } from '@ai-sdk/google';
+import { autofix } from '@mnfst/autofix';
+
+const google = createGoogleGenerativeAI({
+  apiKey: process.env.GOOGLE_GENERATIVE_AI_API_KEY,
+  fetch: autofix({ sendMessages: true }),
 });
 ```
 
@@ -95,9 +105,8 @@ schema bodies, identity fields, and credential fields stay local. The provider e
 endpoint origin and path, derived workspace id, and SDK source are also sent.
 
 `autofix({ sendMessages: true })` (default `false`) opts the top-level `messages`
-array in, verbatim — for teams pointing at their own heal service who want the
-conversation visible next to the failure it caused. It is observability only:
-the heal API still cannot author or rewrite a message on the way back.
+or Gemini `contents` array in, verbatim. It is observability only: the heal API
+still cannot author or rewrite the conversation on the way back.
 
 ## See heals
 

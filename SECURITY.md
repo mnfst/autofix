@@ -12,10 +12,10 @@ endpoint, on whatever host your SDK is pointed at, and sends the failed request
 to a heal API. Worth knowing exactly what that means:
 
 **Removed before anything is sent, and restored from your own copy on the
-replay:** `messages`, `input`, `instructions`, `system`, `tools`,
-`response_format`, `text.format`. The strip is a union across dialects, so a
-content field is removed on every API, not just the one that normally carries
-it. See `node/src/core/anonymize.ts` (about 100 lines) or
+replay:** `messages`, Gemini `contents`, `input`, `instructions`, system prompts,
+tools, and response schemas. The strip is a union across dialects, so a content
+field is removed on every API, not just the one that normally carries it. See
+`node/src/core/anonymize.ts` or
 `python/src/mnfst_autofix/core/anonymize.py`.
 
 **Sent as-is:** the provider's error message. Healing depends on it, and

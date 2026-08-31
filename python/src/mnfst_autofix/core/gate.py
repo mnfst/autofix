@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import json
 from dataclasses import dataclass
-from typing import Any, Callable, Dict, NamedTuple, Optional, Sequence
+from typing import Any, Callable, Dict, NamedTuple, Optional, Sequence, Tuple
 
 import httpx
 
@@ -28,6 +28,12 @@ class Route:
     provider: str
     api: str
     identified_by: Sequence[str] = ("model",)
+    model: Optional[str] = None
+    provider_format: Optional[str] = None
+    redacted_fields: Sequence[str] = ()
+    replay: Optional[
+        Callable[[httpx.URL, Dict[str, Any]], Tuple[httpx.URL, Dict[str, Any]]]
+    ] = None
 
 
 # A provider's route table: URL -> Route, or None to stay inert.
@@ -55,6 +61,21 @@ class Healable(NamedTuple):
     route: Route
     request: Dict[str, Any]
     error: Dict[str, Any]
+
+
+def parse_provider_error(value: Any) -> Optional[Dict[str, str]]:
+    """Normalize provider error envelopes to the fields the heal API accepts."""
+    if not isinstance(value, dict) or not isinstance(value.get("message"), str):
+        return None
+    error = {"message": value["message"]}
+    error_type = value.get("type") if isinstance(value.get("type"), str) else value.get("status")
+    if isinstance(error_type, str):
+        error["type"] = error_type
+    if isinstance(value.get("param"), str):
+        error["param"] = value["param"]
+    if isinstance(value.get("code"), (str, int)):
+        error["code"] = str(value["code"])
+    return error
 
 
 def path_ends_with(url: httpx.URL, suffix: str) -> bool:
@@ -96,7 +117,7 @@ def open_gate(detect: Detect, request: httpx.Request,
         return None
     try:
         req = json.loads(request.content)  # raises for streamed bodies -> not our problem
-        error = json.loads(response.content).get("error")
+        error = parse_provider_error(json.loads(response.content).get("error"))
     except Exception:
         return None
     if not isinstance(req, dict) or not any(key in req for key in route.identified_by):
@@ -109,6 +130,6 @@ def open_gate(detect: Detect, request: httpx.Request,
         # `{role, content, attachments}` to `/threads/{id}/messages`, which is
         # the Anthropic dialect's tail and none of our business.
         return None
-    if not isinstance(error, dict) or not error.get("message"):
+    if not error or not error.get("message"):
         return None
     return Healable(safe_url(request.url), route, req, error)

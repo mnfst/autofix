@@ -120,8 +120,8 @@ test('heals a messages call: strips content + system, replays, keeps the key', a
 // There is one adapter now, so "the adapters do not overlap" is not a property
 // this file can state. What replaced it: each path is attributed to the right
 // provider/api through the single autofix() — tests/index.test.ts, 'one fetch
-// instance routes all three dialects to the right provider' — and paths outside
-// the three dialect tails stay inert — same file, 'unknown paths leave the
+// instance routes all four dialects to the right provider' — and paths outside
+// the four dialect tails stay inert — same file, 'unknown paths leave the
 // universal wrapper inert'. The Anthropic-specific half of that stays here.
 
 test('non-messages Anthropic paths stay inert', async () => {

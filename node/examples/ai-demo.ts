@@ -1,5 +1,5 @@
 // E2E demo: Vercel AI SDK + autofix + the hosted heal API.
-// One autofix() fetch shared by BOTH providers — the root export routes by
+// One autofix() fetch shared by both providers — the root export routes by
 // path. Each scenario would normally throw; with autofix it heals to a 200.
 // Needs OPENAI_API_KEY and ANTHROPIC_API_KEY (via .env or the environment).
 //
@@ -9,8 +9,8 @@
 // the Responses API), so a bad *param* never reaches the provider through this
 // SDK and there is nothing for autofix to heal. The model id is the one field
 // the SDK forwards verbatim. The three scenarios below therefore cover the
-// three distinct paths in the root route table — /chat/completions, /responses
-// and /messages — which is the claim this demo exists to prove.
+// three distinct paths exercised here — /chat/completions, /responses and
+// /messages — which is the claim this demo exists to prove.
 
 import { generateText } from 'ai';
 import { createOpenAI } from '@ai-sdk/openai';
@@ -26,7 +26,7 @@ const healingFetch = autofix({
   },
 });
 
-// ONE fetch, two providers: routing is by path, not by import.
+// One fetch, two providers: routing is by path, not by import.
 const openai = createOpenAI({ fetch: healingFetch });
 const anthropic = createAnthropic({ fetch: healingFetch });
 

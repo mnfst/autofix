@@ -4,7 +4,7 @@
 
 import { createHash } from 'node:crypto';
 import { hostname, userInfo } from 'node:os';
-import type { ProviderError } from './gate.ts';
+import { parseProviderError, type ProviderError } from './gate.ts';
 import type { SdkSource } from './source.ts';
 import { VERSION } from './version.ts';
 
@@ -67,7 +67,8 @@ export function healApi(timeoutMs: number): HealApi {
                               failed?: Response) {
     let error: ProviderError | undefined;
     if (failed) {
-      try { error = (await failed.json())?.error; } catch { /* weak outcome is fine */ }
+      try { error = parseProviderError((await failed.json())?.error) ?? undefined; }
+      catch { /* weak outcome is fine */ }
     }
     await fetch(`${baseUrl}/api/heal-attempts/${healAttemptId}`, {
       method: 'PATCH',
