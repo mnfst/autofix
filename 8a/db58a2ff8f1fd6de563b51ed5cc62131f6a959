@@ -1,0 +1,23 @@
+examples/fastapi/yesterday_client.py
+  s_272f1586921530::t_3639f1e0a6cf17 1-40
+examples/fastapi/app.py
+  s_272f1586921530::t_d2d040641eed70 1-42
+examples/fastapi/README.md
+  s_272f1586921530::t_e2abe81c392465 1-18
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "8adb58a2ff8f1fd6de563b51ed5cc62131f6a959",
+  "prompts": {},
+  "sessions": {
+    "s_272f1586921530": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0cc8befe-a944-43e6-a942-9f7ee9fd33a4",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
