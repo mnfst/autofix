@@ -13,7 +13,7 @@ const testFiles = readdirSync(testsDirectory)
 for (const testFile of testFiles) {
   const result = spawnSync(
     process.execPath,
-    [tsxCli, '--test', fileURLToPath(new URL(testFile, testsDirectory))],
+    [tsxCli, fileURLToPath(new URL(testFile, testsDirectory))],
     { stdio: 'inherit' },
   );
 
