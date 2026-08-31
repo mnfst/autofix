@@ -1,0 +1,26 @@
+python/src/mnfst_autofix/core/engine.py
+  s_272f1586921530::t_f1072b9b258be4 101
+  s_272f1586921530::t_11705e16b6e7f7 160-161
+python/tests/test_rest.py
+  s_272f1586921530::t_e069010b30973b 4
+  s_272f1586921530::t_d06f8503aa23e3 142-169
+python/src/mnfst_autofix/core/attempt.py
+  s_272f1586921530::t_75ee3328f9a0d8 54-55,59-64,69,76-77,83
+  s_272f1586921530::t_249d8a3fbac5c2 19-23
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "a6eeb08cbf4a7b33248c54b6428c443f3accd885",
+  "prompts": {},
+  "sessions": {
+    "s_272f1586921530": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0cc8befe-a944-43e6-a942-9f7ee9fd33a4",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
