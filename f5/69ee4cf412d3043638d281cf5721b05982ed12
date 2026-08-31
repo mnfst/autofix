@@ -1,0 +1,22 @@
+node/package.json
+  s_28ddf62cdd7695::t_ba471a39bb3576 45
+node/scripts/run-tests.mjs
+  s_28ddf62cdd7695::t_004e6e461fa19f 4,16
+  s_28ddf62cdd7695::t_ba471a39bb3576 1-3,5-15,17-23
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "f569ee4cf412d3043638d281cf5721b05982ed12",
+  "prompts": {},
+  "sessions": {
+    "s_28ddf62cdd7695": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0570b-9331-7123-9b8b-819cf04fac7b",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
