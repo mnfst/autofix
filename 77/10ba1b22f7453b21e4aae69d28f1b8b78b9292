@@ -1,0 +1,30 @@
+python/src/mnfst_autofix/fastapi/middleware.py
+  s_272f1586921530::t_f2a47cf7784921 182-193,196,198,203-206,208-228
+  s_272f1586921530::t_709cf7e0ced248 127-128
+  s_272f1586921530::t_a874a990974a29 144
+  s_272f1586921530::t_3c933b95585101 135
+  s_272f1586921530::t_94d5fc011434c6 257-264,267-268
+  s_272f1586921530::t_9802a1a2409cc7 48,50-52
+  s_272f1586921530::t_d3096e7e142072 61,66
+  s_272f1586921530::t_725e47ce418af4 72-73,75,81-86,92-93,96,98-100
+  s_272f1586921530::t_4bdc1b6183774d 102-103
+python/tests/test_fastapi_middleware.py
+  s_272f1586921530::t_fe271600ae5bc0 130-235
+  s_272f1586921530::t_a8a730ffb8eff3 4,12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "7710ba1b22f7453b21e4aae69d28f1b8b78b9292",
+  "prompts": {},
+  "sessions": {
+    "s_272f1586921530": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0cc8befe-a944-43e6-a942-9f7ee9fd33a4",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
