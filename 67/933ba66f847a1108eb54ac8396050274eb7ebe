@@ -1,0 +1,21 @@
+python/src/mnfst_autofix/rest/shape.py
+  s_272f1586921530::t_efaa40c122b4d4 87-102
+python/tests/test_rest_shape.py
+  s_272f1586921530::t_5dff1645137bc9 83-96
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "67933ba66f847a1108eb54ac8396050274eb7ebe",
+  "prompts": {},
+  "sessions": {
+    "s_272f1586921530": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0cc8befe-a944-43e6-a942-9f7ee9fd33a4",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
