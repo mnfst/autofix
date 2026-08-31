@@ -1,6 +1,6 @@
 {
   "name": "@mnfst/autofix",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "description": "Self-healing fetch() for OpenAI, Anthropic, and native Google Gemini requests. Fixes request-side failures at runtime and retries once.",
   "license": "MIT",
   "type": "module",
