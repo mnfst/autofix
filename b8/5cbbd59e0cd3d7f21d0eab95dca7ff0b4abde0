@@ -1,0 +1,21 @@
+python/src/mnfst_autofix/fastapi/middleware.py
+  s_272f1586921530::t_44d379419f3958 177-179
+python/tests/test_fastapi_middleware.py
+  s_272f1586921530::t_6bed707f53de60 143-156
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "b85cbbd59e0cd3d7f21d0eab95dca7ff0b4abde0",
+  "prompts": {},
+  "sessions": {
+    "s_272f1586921530": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0cc8befe-a944-43e6-a942-9f7ee9fd33a4",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
