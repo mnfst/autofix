@@ -3,6 +3,8 @@
 Import the adapter for your SDK, e.g.:
 
     from mnfst_autofix.openai import autofix
+
+Native Google GenerateContent calls use ``mnfst_autofix.google``.
 """
 
 __version__ = "0.1.1"

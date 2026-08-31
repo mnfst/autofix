@@ -8,7 +8,7 @@ byte.
 
 Everything provider-specific lives in a `detect` callable: which paths this
 transport may touch, and what identifies a body as that dialect's. See
-mnfst_autofix/openai/ and mnfst_autofix/anthropic/.
+mnfst_autofix/openai/, mnfst_autofix/anthropic/ and mnfst_autofix/google/.
 
 Two shells over one _Attempt (see attempt.py), which owns every decision they
 share. All that differs here is how each one waits. What may be touched is in

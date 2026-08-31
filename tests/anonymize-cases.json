@@ -1,5 +1,5 @@
 {
-  "note": "The privacy boundary, stated once for both packages. node/tests/anonymize.test.ts and python/tests/test_anonymize.py both run every case here, so 'Node and Python behave identically' is checked rather than believed. `strip` cases assert what the heal API is shown; `strip_send_messages` cases assert the same with the caller's sendMessages / send_messages opt-in on; `merge` cases assert the body that gets replayed.",
+  "note": "The privacy boundary, stated once for both packages. node/tests/anonymize.test.ts and python/tests/test_anonymize.py both run every case here, so 'Node and Python behave identically' is checked rather than believed. `strip` cases assert what the heal API is shown; `strip_send_messages` cases assert the same with the caller's sendMessages / send_messages opt-in on, including Gemini contents; `merge` cases assert the body that gets replayed.",
 
   "strip": [
     {
@@ -189,6 +189,22 @@
       "name": "a degenerate value is a value: null is a scalar, not a container",
       "request": { "model": "m", "text": null, "input": "SECRET" },
       "sent": { "model": "m", "text": null }
+    },
+    {
+      "name": "Gemini content and system instructions stay home by default",
+      "request": {
+        "generationConfig": {
+          "temperature": 0.2,
+          "maxOutputTokens": 128,
+          "stopSequences": ["SECRET"],
+          "responseSchema": { "type": "object", "title": "SECRET" }
+        },
+        "contents": [{ "role": "user", "parts": [{ "text": "SECRET" }] }],
+        "systemInstruction": { "parts": [{ "text": "SECRET" }] },
+        "cachedContent": "SECRET",
+        "labels": { "customer": "SECRET" }
+      },
+      "sent": { "generationConfig": { "temperature": 0.2, "maxOutputTokens": 128 } }
     }
   ],
 
@@ -213,6 +229,19 @@
           { "role": "user", "content": "the conversation itself" },
           { "role": "assistant", "content": [{ "type": "text", "text": "nested content too" }] }
         ]
+      }
+    },
+    {
+      "name": "the Gemini contents array travels verbatim while system instructions stay home",
+      "request": {
+        "generationConfig": { "temperature": 0.2, "maxOutputTokens": 128 },
+        "contents": [{ "role": "user", "parts": [{ "text": "the conversation itself" }] }],
+        "systemInstruction": { "parts": [{ "text": "SECRET" }] },
+        "tools": [{ "functionDeclarations": [{ "name": "SECRET_TOOL" }] }]
+      },
+      "sent": {
+        "generationConfig": { "temperature": 0.2, "maxOutputTokens": 128 },
+        "contents": [{ "role": "user", "parts": [{ "text": "the conversation itself" }] }]
       }
     },
     {

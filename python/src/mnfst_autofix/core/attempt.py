@@ -16,7 +16,7 @@ from typing import Any, Callable, Dict, List, Optional, Protocol
 import httpx
 
 from .anonymize import merge_healed_body, strip_request
-from .gate import Healable
+from .gate import Healable, parse_provider_error
 
 
 @dataclass
@@ -56,7 +56,7 @@ def _read_error(replay: httpx.Response) -> Optional[Dict[str, Any]]:
         return None
     try:
         replay.read()
-        return json.loads(replay.content).get("error")
+        return parse_provider_error(json.loads(replay.content).get("error"))
     except Exception:
         return None  # weak outcome is fine
     finally:
@@ -69,7 +69,7 @@ async def _aread_error(replay: httpx.Response) -> Optional[Dict[str, Any]]:
         return None
     try:
         await replay.aread()
-        return json.loads(replay.content).get("error")
+        return parse_provider_error(json.loads(replay.content).get("error"))
     except Exception:
         return None
     finally:
@@ -78,6 +78,19 @@ async def _aread_error(replay: httpx.Response) -> Optional[Dict[str, Any]]:
 
 def _explanation(heal: Dict[str, Any]) -> Dict[str, Any]:
     return heal.get("explanation") or {}
+
+
+def _provider_exchange(gate: Healable, body: Dict[str, Any], status_code: int):
+    redacted = [
+        field for field in gate.route.redacted_fields
+        if field in gate.request and field not in body
+    ]
+    return {
+        "format": gate.route.provider_format,
+        "url": gate.url,
+        "request": {"body": body, **({"redactedFields": redacted} if redacted else {})},
+        "response": {"statusCode": status_code, "body": {"error": gate.error}},
+    }
 
 
 class _OutcomeReporter(Protocol):
@@ -112,6 +125,11 @@ class _Attempt:
     def start_heal(self) -> Dict[str, Any]:
         """Start the heal clock and return the payload to send."""
         self._heal_started = time.monotonic()
+        native_request = strip_request(self._gate.request, send_messages=self._send_messages)
+        request = (
+            {"model": self._gate.route.model, **native_request}
+            if self._gate.route.model else native_request
+        )
         return {
             "traceId": self.trace_id,
             "tenantId": self._api.tenant_id,
@@ -120,11 +138,14 @@ class _Attempt:
             "url": self.url,
             # ANONYMIZED: the settings leave, the structure and the content stay -
             # unless the caller opted the messages in.
-            "request": strip_request(self._gate.request, send_messages=self._send_messages),
+            "request": request,
             "response": {
                 "statusCode": self.original.status_code,
                 "error": self._gate.error,
             },
+            **({"providerExchange": _provider_exchange(
+                self._gate, native_request, self.original.status_code,
+            )} if self._gate.route.provider_format else {}),
             "responseTimeMs": self._provider_ms,
         }
 
@@ -163,10 +184,13 @@ class _Attempt:
         The clock starts after the merge: replay_ms is the provider's time.
         """
         body = merge_healed_body(self._gate.request, healed)
+        url = self._request.url
+        if self._gate.route.replay:
+            url, body = self._gate.route.replay(url, body)
         headers = self._request.headers.copy()
         headers.pop("content-length", None)
         self._replay_started = time.monotonic()
-        return httpx.Request("POST", self._request.url, headers=headers,
+        return httpx.Request("POST", url, headers=headers,
                              content=json.dumps(body).encode(),
                              extensions=self._request.extensions)
 

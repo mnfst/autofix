@@ -1,7 +1,7 @@
 {
   "name": "@mnfst/autofix",
   "version": "0.3.2",
-  "description": "Self-healing fetch() for LLM SDKs — OpenAI SDK, Anthropic SDK, and the Vercel AI SDK. Fixes request-side failures at runtime (renamed params, restricted values, retired models) and retries. Anonymized: your prompts never travel in the request.",
+  "description": "Self-healing fetch() for OpenAI, Anthropic, and native Google Gemini requests. Fixes request-side failures at runtime and retries once.",
   "license": "MIT",
   "type": "module",
   "repository": {
@@ -13,6 +13,8 @@
   "keywords": [
     "openai",
     "anthropic",
+    "google",
+    "gemini",
     "vercel",
     "ai-sdk",
     "llm",
@@ -50,6 +52,7 @@
   },
   "devDependencies": {
     "@ai-sdk/anthropic": "^4.0.33",
+    "@ai-sdk/google": "^4.0.45",
     "@ai-sdk/openai": "^4.0.32",
     "@anthropic-ai/sdk": "^0.120.0",
     "@eslint/js": "^10.0.1",

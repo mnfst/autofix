@@ -27,9 +27,11 @@
  * `user_location` is where the end user physically is.
  */
 const NEVER_TRAVELS: ReadonlySet<string> = new Set([
-  'content', 'input', 'instructions', 'system', 'prompt', 'stop', 'stop_sequences',
-  'schema', 'json_schema',
-  'user', 'metadata', 'safety_identifier', 'prompt_cache_key', 'user_location',
+  'content', 'contents', 'input', 'instructions', 'system', 'systemInstruction',
+  'prompt', 'stop', 'stop_sequences', 'stopSequences',
+  'schema', 'json_schema', 'responseSchema',
+  'user', 'metadata', 'labels', 'safety_identifier', 'prompt_cache_key', 'user_location',
+  'cachedContent',
   'prediction', 'authorization_token',
 ]);
 
@@ -88,9 +90,9 @@ function sentObject(source: Record<string, unknown>): Record<string, unknown> {
 /** Caller-chosen relaxations of the boundary. Nothing here is on by default. */
 export interface StripOptions {
   /**
-   * Send the top-level `messages` array to the heal API verbatim, content and
-   * all. Off by default. For callers who run their own heal service and want
-   * the conversation visible next to the failure it caused. Observability
+   * Send the top-level `messages` or Gemini `contents` array to the heal API
+   * verbatim, content and all. Off by default. For callers who want the
+   * conversation visible next to the failure it caused. Observability
    * only: the merge below never consults this, so the heal API still cannot
    * author or rewrite a message even after being shown them.
    */
@@ -103,6 +105,9 @@ export function stripRequest(request: Record<string, unknown>,
   const kept = sentObject(request);
   if (options.sendMessages && Array.isArray(request.messages)) {
     kept.messages = structuredClone(request.messages);
+  }
+  if (options.sendMessages && Array.isArray(request.contents)) {
+    kept.contents = structuredClone(request.contents);
   }
   return kept;
 }

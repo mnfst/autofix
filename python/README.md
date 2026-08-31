@@ -1,6 +1,6 @@
 # Autofix Python
 
-Self-healing HTTP transport for LLM SDKs — the [OpenAI](https://github.com/openai/openai-python) and [Anthropic](https://github.com/anthropics/anthropic-sdk-python) Python SDKs. When a request fails with a fixable request-shape error — a renamed parameter, a restricted value, a retired model — autofix repairs it at runtime and retries. Your code doesn't change; your users never see the failure.
+Self-healing HTTP transport for OpenAI, Anthropic, and native Google Gemini requests. When a request fails with a fixable request-shape error — a renamed parameter, a restricted value, a retired model — autofix repairs it at runtime and retries. Your code doesn't change; your users never see the failure.
 
 ## Installation
 
@@ -47,6 +47,19 @@ from mnfst_autofix.anthropic import autofix
 client = Anthropic(http_client=autofix())
 ```
 
+For a native Google GenerateContent request:
+
+```python
+from mnfst_autofix.google import autofix
+
+client = autofix(send_messages=True)
+response = client.post(
+    "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+    headers={"x-goog-api-key": "..."},
+    json={"contents": [{"role": "user", "parts": [{"text": "Hello!"}]}]},
+)
+```
+
 For LiteLLM:
 
 ```python
@@ -91,10 +104,9 @@ Scalar settings and scalar-only arrays may travel. Prompts, tools, nested arrays
 schema bodies, identity fields, and credential fields stay local. The provider error,
 endpoint origin and path, derived workspace id, and SDK source are also sent.
 
-`autofix(send_messages=True)` (default `False`) opts the top-level `messages`
-list in, verbatim — for teams pointing at their own heal service who want the
-conversation visible next to the failure it caused. It is observability only:
-the heal API still cannot author or rewrite a message on the way back.
+`autofix(send_messages=True)` (default `False`) opts the top-level `messages` or
+Gemini `contents` list in, verbatim. It is observability only: the heal API still
+cannot author or rewrite the conversation on the way back.
 
 ## See heals
 

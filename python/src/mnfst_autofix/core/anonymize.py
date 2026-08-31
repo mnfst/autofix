@@ -29,9 +29,11 @@ from typing import Any, Dict, Tuple
 # `authorization_token` is a live bearer token for somebody else's server.
 # `user_location` is where the end user physically is.
 NEVER_TRAVELS = frozenset((
-    "content", "input", "instructions", "system", "prompt", "stop", "stop_sequences",
-    "schema", "json_schema",
-    "user", "metadata", "safety_identifier", "prompt_cache_key", "user_location",
+    "content", "contents", "input", "instructions", "system", "systemInstruction",
+    "prompt", "stop", "stop_sequences", "stopSequences",
+    "schema", "json_schema", "responseSchema",
+    "user", "metadata", "labels", "safety_identifier", "prompt_cache_key", "user_location",
+    "cachedContent",
     "prediction", "authorization_token",
 ))
 
@@ -85,15 +87,17 @@ def _sent_dict(source: Dict[str, Any]) -> Dict[str, Any]:
 def strip_request(request: Dict[str, Any], *, send_messages: bool = False) -> Dict[str, Any]:
     """The request as the heal API sees it: the settings, and nothing else.
 
-    ``send_messages=True`` sends the top-level ``messages`` list verbatim,
-    content and all. Off by default. For callers who run their own heal service
-    and want the conversation visible next to the failure it caused.
+    ``send_messages=True`` sends the top-level ``messages`` or Gemini
+    ``contents`` list verbatim, content and all. Off by default. For callers who
+    want the conversation visible next to the failure it caused.
     Observability only: ``merge_healed_body`` never consults this, so the heal
     API still cannot author or rewrite a message even after being shown them.
     """
     kept = _sent_dict(request)
     if send_messages and isinstance(request.get("messages"), list):
         kept["messages"] = copy.deepcopy(request["messages"])
+    if send_messages and isinstance(request.get("contents"), list):
+        kept["contents"] = copy.deepcopy(request["contents"])
     return kept
 
 

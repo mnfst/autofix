@@ -15,6 +15,7 @@ node/src/core/heal-api.ts    the only code that talks to the heal service
 node/src/core/engine.ts      orchestration, and createAutofix(adapter)
 node/src/openai/             OpenAI's routes, /chat/completions + /responses
 node/src/anthropic/          Anthropic's routes, /messages
+node/src/google/             Google's native :generateContent routes
 ```
 
 `python/src/mnfst_autofix/core/` mirrors that, plus `attempt.py`, which holds

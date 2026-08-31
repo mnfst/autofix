@@ -31,6 +31,17 @@ export interface Route {
    * prompt reference, `/chat/completions` and `/messages` do not.
    */
   identifiedBy: readonly string[];
+  /** Logical model when the provider puts it in the URL instead of the body. */
+  model?: string;
+  /** Native provider boundary persisted beside Phoenix's logical patch input. */
+  providerExchange?: { format: string; redactedFields: readonly string[] };
+  /** Move virtual logical fields, such as Google's model, back onto the wire. */
+  replay?: (url: URL, body: Record<string, unknown>) => ReplayRequest;
+}
+
+export interface ReplayRequest {
+  url: URL;
+  body: Record<string, unknown>;
 }
 
 /**
@@ -39,11 +50,11 @@ export interface Route {
  * exports its own, so an entry point never restates path or provider.
  */
 export interface Dialect {
-  path: string;
-  route: Route;
+  path: string | readonly string[];
+  route: Route | ((url: URL) => Route);
 }
 
-/** The provider's own error, forwarded to the heal API unmodified. */
+/** The provider error fields accepted by the heal API. */
 export interface ProviderError {
   message: string;
   type?: string;
@@ -51,13 +62,39 @@ export interface ProviderError {
   code?: string;
 }
 
+/** Normalize provider error envelopes without inventing fields the server rejects. */
+export function parseProviderError(value: unknown): ProviderError | null {
+  if (typeof value !== 'object' || value === null || Array.isArray(value)) return null;
+  const raw = value as Record<string, unknown>;
+  const message = optionalString(raw.message);
+  if (!message) return null;
+  const type = optionalString(raw.type) ?? optionalString(raw.status);
+  const code = optionalCode(raw.code);
+  return {
+    message,
+    ...(type ? { type } : {}),
+    ...(optionalString(raw.param) ? { param: raw.param as string } : {}),
+    ...(code ? { code } : {}),
+  };
+}
+
+function optionalString(value: unknown): string | undefined {
+  return typeof value === 'string' ? value : undefined;
+}
+
+function optionalCode(value: unknown): string | undefined {
+  return typeof value === 'string' || typeof value === 'number' ? String(value) : undefined;
+}
+
 /** A failure autofix may act on, carrying everything the heal call needs. */
 export interface Healable {
   url: string;
   provider: string;
   api: string;
+  route: Route;
   request: Record<string, unknown>;
   error: ProviderError;
+  requestUrl: URL;
   /** Which SDK the app wrapped — classified from the request's own headers. */
   source: SdkSource;
 }
@@ -87,8 +124,16 @@ export function pathEndsWith(url: URL, suffix: string): boolean {
  */
 export function routeTable(dialects: readonly Dialect[]): Adapter {
   return {
-    detect: (url) => dialects.find((d) => pathEndsWith(url, d.path))?.route ?? null,
+    detect: (url) => {
+      const dialect = dialects.find((d) => pathsOf(d.path).some((path) => pathEndsWith(url, path)));
+      if (!dialect) return null;
+      return typeof dialect.route === 'function' ? dialect.route(url) : dialect.route;
+    },
   };
+}
+
+function pathsOf(path: string | readonly string[]): readonly string[] {
+  return typeof path === 'string' ? [path] : path;
 }
 
 /**
@@ -192,14 +237,16 @@ export async function openGate(
   try {
     const request = parseObjectBody(init!.body as string, scope.route);
     if (!request) return null;
-    const error: ProviderError | undefined = (await res.clone().json())?.error; // clone: original stays readable
-    if (!error?.message) return null;
+    const error = parseProviderError((await res.clone().json())?.error); // clone: original stays readable
+    if (!error) return null;
     return {
       url: safeUrl(scope.url),
       provider: scope.route.provider,
       api: scope.route.api,
+      route: scope.route,
       request,
       error,
+      requestUrl: scope.url,
       source: classifySource(input, init),
     };
   } catch {

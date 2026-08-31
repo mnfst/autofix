@@ -54,19 +54,24 @@ const aiSdkInit = (body: Record<string, unknown>, provider: string): RequestInit
   body: JSON.stringify(body),
 });
 
-test('one fetch instance routes all three dialects to the right provider', async () => {
-  const routes: Array<[string, string, string]> = [
-    ['https://api.openai.com/v1/chat/completions', 'openai', 'chat_completions'],
-    ['https://api.openai.com/v1/responses', 'openai', 'responses'],
-    ['https://api.anthropic.com/v1/messages', 'anthropic', 'messages'],
+test('one fetch instance routes all four dialects to the right provider', async () => {
+  const routes: Array<[string, string, string, Record<string, unknown>]> = [
+    ['https://api.openai.com/v1/chat/completions', 'openai', 'chat_completions',
+      { model: 'm', max_tokens: 10 }],
+    ['https://api.openai.com/v1/responses', 'openai', 'responses',
+      { model: 'm', max_tokens: 10 }],
+    ['https://api.anthropic.com/v1/messages', 'anthropic', 'messages',
+      { model: 'm', max_tokens: 10 }],
+    ['https://generativelanguage.googleapis.com/v1beta/models/m:generateContent',
+      'gemini', 'chat_completions', { contents: [], generationConfig: { maxOutputTokens: 10 } }],
   ];
   const stub = providerStub([err400('bad knob'), ok200, err400('bad knob'), ok200,
-    err400('bad knob'), ok200]);
+    err400('bad knob'), ok200, err400('bad knob'), ok200]);
   const events: HealEvent[] = [];
   const fx = autofix({ fetch: stub.fn, onHeal: (e) => events.push(e) }); // ONE instance
-  for (const [i, [url, provider, api]] of routes.entries()) {
+  for (const [i, [url, provider, api, body]] of routes.entries()) {
     healCalls = [];
-    const res = await fx(url, aiSdkInit({ model: 'm', max_tokens: 10 }, provider));
+    const res = await fx(url, aiSdkInit(body, provider));
     assert.equal(res.status, 200, url);
     assert.equal(healCalls[0]!.body!.provider, provider, url);
     assert.equal(healCalls[0]!.body!.api, api, url);
@@ -74,14 +79,16 @@ test('one fetch instance routes all three dialects to the right provider', async
   }
 });
 
-test('the union adapter reports vercel-sdk for AI SDK traffic on both dialect families', async () => {
+test('the union adapter reports vercel-sdk for AI SDK traffic on every provider family', async () => {
   for (const [url, provider] of [
     ['https://api.openai.com/v1/chat/completions', 'openai'],
     ['https://api.anthropic.com/v1/messages', 'anthropic'],
+    ['https://generativelanguage.googleapis.com/v1beta/models/m:generateContent', 'google'],
   ] as const) {
     healCalls = [];
     const stub = providerStub([err400('bad knob'), ok200]);
-    await autofix({ fetch: stub.fn })(url, aiSdkInit({ model: 'm' }, provider));
+    const body = provider === 'google' ? { contents: [] } : { model: 'm' };
+    await autofix({ fetch: stub.fn })(url, aiSdkInit(body, provider));
     assert.equal(healCalls[0]!.headers['x-autofix-source'], 'vercel-sdk', url);
   }
 });
@@ -90,6 +97,7 @@ test('unknown paths leave the universal wrapper inert', async () => {
   const inertPaths = [
     'https://api.openai.com/v1/embeddings',
     'https://api.anthropic.com/v1/messages/batches',
+    'https://generativelanguage.googleapis.com/v1beta/models/m:batchGenerateContent',
     'https://example.com/api/anything',
     // OpenAI's Assistants API (/threads/{id}/messages) ends in the Anthropic
     // dialect's tail, so it is the body that keeps it inert, not the path —

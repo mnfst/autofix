@@ -5,12 +5,12 @@ build-backend = "hatchling.build"
 [project]
 name = "mnfst-autofix"
 version = "0.1.1"
-description = "Self-healing HTTP transport for LLM SDKs - the OpenAI and Anthropic Python SDKs. Fixes request-side failures at runtime (renamed params, restricted values, retired models) and retries. Anonymized: your prompts never travel in the request."
+description = "Self-healing HTTP transport for OpenAI, Anthropic, and native Google Gemini requests. Fixes request-side failures at runtime and retries once."
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.9"
 authors = [{ name = "Manifest" }]
-keywords = ["openai", "anthropic", "llm", "reliability", "self-healing", "httpx", "retry", "autofix"]
+keywords = ["openai", "anthropic", "google", "gemini", "llm", "reliability", "self-healing", "httpx", "retry", "autofix"]
 dependencies = ["httpx>=0.24"]
 
 [project.urls]
