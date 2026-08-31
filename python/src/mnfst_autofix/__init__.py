@@ -7,4 +7,4 @@ Import the adapter for your SDK, e.g.:
 Native Google GenerateContent calls use ``mnfst_autofix.google``.
 """
 
-__version__ = "0.1.1"
+__version__ = "0.2.0"

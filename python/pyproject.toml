@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "mnfst-autofix"
-version = "0.1.1"
+version = "0.2.0"
 description = "Self-healing HTTP transport for OpenAI, Anthropic, and native Google Gemini requests. Fixes request-side failures at runtime and retries once."
 readme = "README.md"
 license = "MIT"
