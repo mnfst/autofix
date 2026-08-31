@@ -1,0 +1,31 @@
+python/tests/test_rest.py
+  s_272f1586921530::t_36167ef13915eb 52-76
+python/src/mnfst_autofix/rest/shape.py
+  s_272f1586921530::t_1081c99d9fe1aa 16,25-51
+  s_272f1586921530::t_248ce80313c1a4 52
+python/tests/test_gate_hooks.py
+  s_272f1586921530::t_d09a39eca02d6c 44-70
+python/tests/test_rest_shape.py
+  s_272f1586921530::t_1aa174c01c9890 3-5
+  s_272f1586921530::t_292300b34b8543 81-104
+python/src/mnfst_autofix/core/gate.py
+  s_272f1586921530::t_1081c99d9fe1aa 32-34,48,143-148
+python/src/mnfst_autofix/rest/__init__.py
+  s_272f1586921530::t_1081c99d9fe1aa 26,43-48,52-54,59,61
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "c24e1e87b8cc68d614f8aa5153ecafc6f4b6221c",
+  "prompts": {},
+  "sessions": {
+    "s_272f1586921530": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0cc8befe-a944-43e6-a942-9f7ee9fd33a4",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
