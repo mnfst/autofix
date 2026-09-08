@@ -1,0 +1,29 @@
+README.md
+  s_76d6693f68247b::t_6a60da4a7aeea6 5,183-185
+  s_76d6693f68247b::t_1a3a7489b53c41 143
+  s_4b7e5070d0661a::t_273df11278d1b9 186
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "aab9ce92d9ea71a01472ca72ba9cb9bd084de159",
+  "prompts": {},
+  "sessions": {
+    "s_4b7e5070d0661a": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f7fb3d49dffenUXU16RxXUdhQA",
+        "model": "auto"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    },
+    "s_76d6693f68247b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0804e-78e0-7c63-a413-997358993d2a",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
