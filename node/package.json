@@ -54,7 +54,7 @@
     "@ai-sdk/anthropic": "^4.0.33",
     "@ai-sdk/google": "^4.0.45",
     "@ai-sdk/openai": "^4.0.32",
-    "@anthropic-ai/sdk": "^0.120.0",
+    "@anthropic-ai/sdk": "^0.128.0",
     "@eslint/js": "^10.0.1",
     "@types/node": "^26.2.0",
     "ai": "^7.0.55",
@@ -62,7 +62,7 @@
     "globals": "^17.11.0",
     "openai": "^7.5.0",
     "tsup": "^8.5.1",
-    "tsx": "4.23.8",
+    "tsx": "4.23.15",
     "typescript": "^5.5.0",
     "typescript-eslint": "^8.0.0"
   }
